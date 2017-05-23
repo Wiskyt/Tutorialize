@@ -8,12 +8,11 @@ angular.module('tutorialize')
 })
 
 function TutoList($resource) {
-    console.log("hello");
     // Controller
     var _this = this;
 
-    var request = $resource("127.0.0.1:9000/data");
+    var request = $resource("/data");
     request.get().$promise.then(function(data) {
-        console.log("got ", data);
+        _this.tutorials = data.data;
     })
 }

@@ -7,12 +7,11 @@ var exampleData;
 DatabaseManager.init = function(address, port) {
     console.log("Database Manager loaded".green);
 
-    var dataTemp;
     fs.readFile('exampleData.json', 'utf8', function(err, data) {
         if (err) {
             return console.log(err);
         }
-        exampleData = JSON.parse(data);
+        exampleData = { data: JSON.parse(data) }
         console.log("Example database loaded".green);
     });
 }

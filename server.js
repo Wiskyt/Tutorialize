@@ -19,7 +19,7 @@ app.use(express.static('public')); // On distribue le dossier public
 
 // ~~~~~~~~~~~~~ ROUTING ~~~~~~~~~~~~~~~
 
-app.get('/data/', function(req, res) {
+app.get('/data', function(req, res) {
     console.log('GET Request at Data');
     res.send(dbm.getExampleData());
 });
