@@ -3,10 +3,11 @@
 angular.module('tutorialize')
 
 .component('home', {
-    templateUrl: '/components/home/home.html',
+    templateUrl: '/views/home/home.html',
     controller: Home
 })
 
 function Home() {
+    console.log("HOME");
     // Controller
 }
