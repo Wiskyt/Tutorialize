@@ -1,5 +1,5 @@
 <div class="techno" ng-repeat="tutorial in $ctrl.tutorials">
-    <h1> Tutorials </h1>
+    <h3> {{tutorial.description}} </h3>
     <ul>
         <li>{{tutorial.techno}}</li>
         <li>{{tutorial.version}}</li>
@@ -7,7 +7,6 @@
         <li>{{tutorial.support}}</li>
         <li>{{tutorial.price}}</li>
         <li>{{tutorial.date}}</li>
-        <li>{{tutorial.description}}</li>
         <li>{{tutorial.link}}</li>
     </ul>
 </div>
