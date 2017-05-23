@@ -12,6 +12,9 @@
   "dependencies": {
     "@uirouter/angularjs": "^1.0.3",
     "angular": "^1.6.4",
-    "angular-resource": "^1.6.4"
+    "angular-resource": "^1.6.4",
+    "bootstrap": "^3.3.7",
+    "jQuery": "^1.7.4",
+    "jquery": "^3.2.1"
   }
 }
