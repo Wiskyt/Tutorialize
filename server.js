@@ -1,4 +1,5 @@
 require('colors');
+console.log(""); // Init
 
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -34,7 +35,7 @@ app.get('/filters/:type', function(req, res) {
 
 var server = app.listen(9000, '127.0.0.1', function() {
     let serverInfo = server.address();
-    console.log(('\n\tServer started on http://' + serverInfo.address + ':' + serverInfo.port));
-    console.log('Ready to Roll !'.america);
+    console.log(('\tServer started on http://' + serverInfo.address + ':' + serverInfo.port));
+    console.log('\t  Ready to Roll !'.america);
     // On utilise .couleur aprés un string pour un max de style quand on débug
 });

@@ -5,7 +5,7 @@ angular.module('tutorialize')
 .component('home', {
     templateUrl: './views/home/home.html',
     controller: Home,
-    directives: ["tutoList", "header"]
+    directives: ["tutolist", "header"]
 })
 
 function Home() {

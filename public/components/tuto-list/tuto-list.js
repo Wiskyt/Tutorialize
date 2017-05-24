@@ -2,14 +2,13 @@
 
 angular.module('tutorialize')
 
-.component('tutoList', {
+.component('tutolist', {
     templateUrl: './components/tuto-list/tuto-list.html',
     controller: TutoList
 })
 
 function TutoList($resource) {
     // Controller
-    console.log("wow");
     var _this = this;
 
     var request = $resource("/data");
