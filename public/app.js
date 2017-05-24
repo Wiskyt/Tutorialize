@@ -12,7 +12,8 @@ const run = [
 ]
 
 angular.module('tutorialize', [
-   'ui.router'
+    'ui.router',
+    'ngResource'
     // HERE LIST YOUR MODULES
 ])
 
@@ -24,13 +25,17 @@ function Config($stateProvider, $urlRouterProvider) {
         name: 'home',
         url: '/',
         component: 'home'
+    }, {
+        name: 'tutoList',
+        url: '',
+        component: 'tutoList'
     }];
 
     states.forEach((state) => {
         $stateProvider.state(state)
     });
 
-   $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/');
 }
 
 function Run($state) {

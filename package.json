@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular-resource": "^1.6.4",
     "body-parser": "^1.17.2",
     "colors": "^1.1.2",
     "express": "^4.15.3"
