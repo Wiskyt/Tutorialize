@@ -23,3 +23,7 @@ DatabaseManager.getExampleData = function() {
 DatabaseManager.getTutorialById = function() {
     return exampleData;
 }
+
+DatabaseManager.getFiltersFor = function(type) {
+    // TODO
+}

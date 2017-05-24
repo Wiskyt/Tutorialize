@@ -24,6 +24,12 @@ app.get('/data', function(req, res) {
     res.send(dbm.getExampleData());
 });
 
+app.get('/filters/:type', function(req, res) {
+    console.log('GET Request at Filters, Type : ' + req.params.type);
+    dbm.getFiltersFor(req.params.type);
+
+});
+
 // ~~~~~~~~~~~~ ROUTING END ~~~~~~~~~~~~~~~~~~~~
 
 var server = app.listen(9000, '127.0.0.1', function() {
