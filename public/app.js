@@ -25,10 +25,6 @@ function Config($stateProvider, $urlRouterProvider) {
         name: 'home',
         url: '/',
         component: 'home'
-    }, {
-        name: 'tutoList',
-        url: '',
-        component: 'tutoList'
     }];
 
     states.forEach((state) => {

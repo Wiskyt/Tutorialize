@@ -1,0 +1,19 @@
+#home-container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#menu-root {
+    padding: 10px 15px 10px 15px;
+}
+
+#tutolist-root {
+    background-color: gray;
+    padding: 10px 15px 10px 15px;
+}
+
+.home-welcome {
+    text-align: center;
+}

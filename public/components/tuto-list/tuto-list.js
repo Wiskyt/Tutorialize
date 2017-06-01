@@ -2,8 +2,8 @@
 
 angular.module('tutorialize')
 
-.component('tutoList', {
-    templateUrl: '/components/tutoList/tutoList.html',
+.component('tutolist', {
+    templateUrl: './components/tuto-list/tuto-list.html',
     controller: TutoList
 })
 
