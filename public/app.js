@@ -12,7 +12,8 @@ const run = [
 ]
 
 angular.module('tutorialize', [
-   'ui.router'
+    'ui.router',
+    'ngResource'
     // HERE LIST YOUR MODULES
 ])
 
@@ -30,7 +31,7 @@ function Config($stateProvider, $urlRouterProvider) {
         $stateProvider.state(state)
     });
 
-   $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/');
 }
 
 function Run($state) {
