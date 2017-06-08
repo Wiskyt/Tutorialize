@@ -1,18 +1,27 @@
-<div class="row tutorial-container" ng-repeat="tutorial in $ctrl.tutorials">
-    <div class="col-md-2">
-        {{tutorial.techno}}
-    </div>
-    <!--<div class="techno" ng-repeat="tutorial in $ctrl.tutorials">
-        <h3> {{tutorial.description}} </h3>
-        <ul>
-               <li>{{tutorial.techno}}</li>
-               <li>{{tutorial.version}}</li>
-               <li>{{tutorial.lang}}</li>
-               <li>{{tutorial.support}}</li>
-               <li>{{tutorial.price}}</li>
-               <li>{{tutorial.date}}</li>
-               <li>{{tutorial.link}}</li>
-        </ul>
-    </div>-->
-
+<div class="tutorials-container container-fluid">
+   <div class="container-fluid row no-pad-marg">
+      <div class="tutorial-container col-md-12 row" ng-repeat="tutorial in $ctrl.tutorials">
+         <div class="tutorial-box">
+            {{tutorial.description}}
+         </div>
+         <div class="tutorial-box">
+            {{tutorial.techno}}
+         </div>
+         <div class="tutorial-box">
+            {{tutorial.lang}}
+         </div>
+         <div class="tutorial-box">
+            {{tutorial.support}}
+         </div>
+         <div class="tutorial-box">
+            {{tutorial.price}}
+         </div>
+         <div class="tutorial-box">
+            {{tutorial.description}}
+         </div>
+         <div class="tutorial-box">
+            {{tutorial.date}}
+         </div>
+      </div>
+   </div>
 </div>
