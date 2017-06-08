@@ -1,6 +1,6 @@
 <div class="tutorials-container container-fluid">
    <div class="container-fluid row no-pad-marg">
-      <div class="tutorial-container col-md-12 row" ng-repeat="tutorial in $ctrl.tutorials">
+      <div class="tutorial-container col-md-12" ng-repeat="tutorial in $ctrl.tutorials">
          <div class="tutorial-box">
             {{tutorial.description}}
          </div>
@@ -8,7 +8,7 @@
             {{tutorial.techno}}
          </div>
          <div class="tutorial-box">
-            {{tutorial.lang}}
+            <img ng-src="../../data/img/flags/{{tutorial.lang}}.png"></img>
          </div>
          <div class="tutorial-box">
             {{tutorial.support}}
@@ -16,10 +16,7 @@
          <div class="tutorial-box">
             {{tutorial.price}}
          </div>
-         <div class="tutorial-box">
-            {{tutorial.description}}
-         </div>
-         <div class="tutorial-box">
+         <div class="tutorial-box no-border">
             {{tutorial.date}}
          </div>
       </div>
