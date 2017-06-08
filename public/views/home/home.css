@@ -10,10 +10,14 @@
 }
 
 #tutolist-root {
-    background-color: gray;
-    padding: 10px 15px 10px 15px;
 }
 
 .home-welcome {
     text-align: center;
+    margin-bottom: 15px;
+}
+
+.no-pad-marg {
+   margin: 0;
+   padding: 0;
 }
