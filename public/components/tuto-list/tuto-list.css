@@ -1,0 +1,18 @@
+/* Parent of tutorials */
+.tutorials-container {
+   background-color: lightyellow;
+   padding: 0;
+}
+
+.tutorial-box {
+   display: inline-flex;
+   width: 12%;
+
+   text-align: center;
+}
+
+/* Single tutorial container */
+.tutorial-container {
+   margin: 0;
+   padding: 10px 15px 10px 15px;
+}

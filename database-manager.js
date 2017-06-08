@@ -6,6 +6,8 @@ var exampleData;
 var filters = {
     languages: ["js", "html", "css", "java", "c", "c#", "c++", "php", "python"],
     lang: ["fr", "en"],
+    technology: ["AngularJS", "React", "Angular 2", "Angular 4", "jQuery", "NodeJS"],
+    type: ["Video", "Blog", "Github"] 
 };
 
 DatabaseManager.init = function(address, port) {
