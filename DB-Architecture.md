@@ -9,6 +9,8 @@ Tutoriels :
    - Date création (Timestamp)
    - Type (vidéo, texte)
    - Commentaires? (Array of objects {userId, comment})
+   - Author (String )
+   - Poster (ObjectId) - relation User
 
 User :
    - id (ObjectId)
