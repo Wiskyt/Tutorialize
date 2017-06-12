@@ -5,6 +5,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 
+var authentication = require('./authentication.js');
+authentication.init(app);
+
 var dbm = require('./database-manager');
 dbm.init();
 
@@ -27,7 +30,11 @@ app.get('/data', function(req, res) {
 
 app.get('/filters/:type', function(req, res) {
     console.log('GET Request at Filters, Type : ' + req.params.type);
-    dbm.getFiltersFor(req.params.type);
+    res.send(
+       { 
+          filter: dbm.getFiltersFor(req.params.type)
+       }
+   );
 
 });
 
