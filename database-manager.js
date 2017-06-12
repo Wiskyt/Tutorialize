@@ -85,15 +85,16 @@ DatabaseManager.getFiltersFor = function (type) {
 
 //API routed
 DatabaseManager.getAllTutos = function () {
-    Tutos.get(function (req, res) {
-        Tutos.find(function (err, tuto) {
+    //Tutos.get(function (req, res) {
+        Tuto.find(function (err, tuto) {
             if (err) {
                 return err;
             }
             return tuto;
         });
-    })
+    //})
 }
+
 DatabaseManager.postNewTuto = function (body) {
     let tuto = {
         title: body.title,

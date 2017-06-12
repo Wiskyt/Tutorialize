@@ -30,6 +30,12 @@ app.get('/filters/:type', function(req, res) {
     dbm.getFiltersFor(req.params.type);
 });
 
+app.get('/tuto', function(req, res) {
+    console.log('GET Request at Filters, Type : ' + req.params.type);
+    dbm.getAllTutos(req.params.type);
+    //res.send('teeeeest')
+});
+
 app.post('/tuto', function(req, res) {
     console.log('POST new Tuto, Type :');
 
