@@ -1,11 +1,11 @@
 require('colors');
 console.log(""); // Init
 
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
 
-var dbm = require('./database-manager');
+const dbm = require('./database-manager');
 dbm.init();
 
 // On autorise plus de requêtes pour éviter les soucis
@@ -28,8 +28,15 @@ app.get('/data', function(req, res) {
 app.get('/filters/:type', function(req, res) {
     console.log('GET Request at Filters, Type : ' + req.params.type);
     dbm.getFiltersFor(req.params.type);
-
 });
+
+app.post('/tuto', function(req, res) {
+    console.log('POST new Tuto, Type :');
+
+    dbm.postNewTuto(req.body);
+    res.send('Tuto ajouté')
+});
+
 
 // ~~~~~~~~~~~~ ROUTING END ~~~~~~~~~~~~~~~~~~~~
 
