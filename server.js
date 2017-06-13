@@ -5,7 +5,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
-const dbm = require('./database-manager');
+var authentication = require('./authentication.js');
+authentication.init(app);
+
+var dbm = require('./database-manager');
 dbm.init();
 
 // On autorise plus de requêtes pour éviter les soucis
@@ -31,9 +34,8 @@ app.get('/filters/:type', function(req, res) {
 });
 
 app.get('/tuto', function(req, res) {
-    console.log('GET Request at Filters, Type : ' + req.params.type);
-    dbm.getAllTutos(req.params.type);
-    //res.send('teeeeest')
+    console.log("GET Request at Tutos");
+    res.send(dbm.getAllTutos(req.params.type));
 });
 
 app.post('/tuto', function(req, res) {

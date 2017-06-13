@@ -4,9 +4,13 @@
    </div>
 
    <div id="header-control">
-      <div id="github-login-container">
-      </div>
       <div id="add-tutorial-container">
       </div>
+      <a ng-href="auth/github" ng-if="!$ctrl.auth">
+         <img class="login-image" ng-src="../../data/img/github-logo.png"/>
+      </a>
+      <a ng-href="bye/bye" ng-if="$ctrl.auth">
+         <img class="login-image" ng-src="{{$ctrl.user.avatar_url}}"/>
+      </a>
    </div>
 </div>

@@ -6,112 +6,108 @@ const mongoose = require('mongoose');
 
 var exampleData;
 var filters = {
-    languages: ["js", "html", "css", "java", "c", "c#", "c++", "php", "python"],
-    lang: ["fr", "en"],
-    technology: ["AngularJS", "React", "Angular 2", "Angular 4", "jQuery", "NodeJS"],
-    type: ["Video", "Blog", "Github"]
+   languages: ["js", "html", "css", "java", "c", "c#", "c++", "php", "python"],
+   lang: ["fr", "en"],
+   technology: ["AngularJS", "React", "Angular 2", "Angular 4", "jQuery", "NodeJS"],
+   type: ["Video", "Blog", "Github"]
 };
 
 DatabaseManager.init = function (address, port) {
-    log("Database Manager loaded");
+   log("Database Manager loaded");
 
-    fs.readFile('exampleData.json', 'utf8', function (err, data) {
-        if (err) {
-            return console.log(err);
-        }
-        exampleData = { data: JSON.parse(data) }
-        log("Example Database loaded");
-    });
+   fs.readFile('exampleData.json', 'utf8', function (err, data) {
+      if (err) {
+         return console.log(err);
+      }
+      exampleData = { data: JSON.parse(data) }
+      log("Example Database loaded");
+   });
 
-    // ~~~~~~~~~~~~~ MONGOOSE ~~~~~~~~~~~~~~~~~~~~~~~
-
-
-    let uri = 'mongodb://localhost:27017/tuto';
-
-    mongoose.connect(uri, (error) => {
-        if (error) throw error;
-    })
+   // ~~~~~~~~~~~~~ MONGOOSE ~~~~~~~~~~~~~~~~~~~~~~~
 
 
-    const schemaTuto = new mongoose.Schema({
-        title: {
-            type: String,
-            required: true,
-        },
-        description: {
-            type: String,
-            required: true,
-        },
-        note: Number,
-        language: {
-            type: String,
-            required: true
-        },
-        technologie: {
-            type: String,
-            required: true
-        },
-        dateCreate: {
-            type: Date,
-            required: true
-        },
-        media: {
-            type: String,
-            required: true
-        },
-        comments: {
+   let uri = 'mongodb://localhost:27017/tuto';
+
+   mongoose.connect(uri, (error) => {
+      if (error) throw error;
+   })
+
+
+   const schemaTuto = new mongoose.Schema({
+      title: {
+         type: String,
+         required: true,
+      },
+      description: {
+         type: String,
+         required: true,
+      },
+      note: Number,
+      language: {
+         type: String,
+         required: true
+      },
+      technologie: {
+         type: String,
+         required: true
+      },
+      dateCreate: {
+         type: Date,
+         required: true
+      },
+      media: {
+         type: String,
+         required: true
+      },
+      /*  comments: {
             type: Array,
             required: false
-        },
-        // timestamps: true
-    });
+        },*/
+      // timestamps: true
+   });
 
-    Tuto = mongoose.model('Tuto', schemaTuto)
+   Tuto = mongoose.model('Tuto', schemaTuto)
 }
 
 
 DatabaseManager.getExampleData = function () {
-    return exampleData;
+   return exampleData;
 }
 
 DatabaseManager.getTutorialById = function () {
-    return exampleData;
+   return exampleData;
 }
 
 DatabaseManager.getFiltersFor = function (type) {
-    // TODO
-    return filters[type] || null;
+   // TODO
+   return filters[type] || null;
 }
 
 //API routed
 DatabaseManager.getAllTutos = function () {
-    //Tutos.get(function (req, res) {
-        Tuto.find(function (err, tuto) {
-            if (err) {
-                return err;
-            }
-            return tuto;
-        });
-    //})
+   Tuto.find({}, function (err, tutos) {
+      console.log('found ', tutos);
+      return tutos;
+   });
 }
 
 DatabaseManager.postNewTuto = function (body) {
-    let tuto = {
-        title: body.title,
-        description: body.description,
-        language: body.language,
-        technologie: body.technologie,
-        dateCreate: body.dateCreate,
-        media: body.media,
-        comments: body.comments
-    }
+   let tuto = {
+      title: body.title,
+      description: body.description,
+      language: body.language,
+      technologie: body.technologie,
+      dateCreate: body.dateCreate,
+      media: body.media,
+   }
 
-    Tuto.create(tuto)
-    console.log('okkkk', tuto)
+   Tuto.create(tuto, function (err, user) {
+      if (err) return handleError(err);
+   });
 }
 
 function log(text, ...args) {
-    console.log("[DBM] ".blue + text.blue, ...args);
+   console.log("[DBM] ".blue + text.blue, ...args);
 }
 
     //     .post(function (req, res) {
