@@ -10,10 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "angular-resource": "^1.6.4",
     "body-parser": "^1.17.2",
     "colors": "^1.1.2",
     "express": "^4.15.3",
+    "mongoose": "^4.10.5",
     "express-session": "^1.15.3",
     "passport": "^0.3.2",
     "passport-github2": "^0.1.10"
