@@ -31,23 +31,22 @@
     padding: 18px 0px 18px 0px;
 }
 
-#github-login-image {
+.login-image {
    position: absolute;
-   left: 0;
+   right: 0;
 
    width: 64px;
    height: 64px;
    transition: filter 300ms;
 }
 
-#github-login-image:hover {
-   -webkit-filter: brightness(200%); 
-   filter: brightness(200%);
+.login-image:hover {
+   filter: brightness(120%);
 }
 
 #add-tutorial-container {
    position: absolute;
-   right: 0;
+   left: 0;
 
    background-color: lightblue;
 

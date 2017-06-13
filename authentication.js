@@ -7,7 +7,7 @@ var GitHubStrategy = require('passport-github2').Strategy;
 var GITHUB_CLIENT_ID = "Iv1.8935fa443f459d71";
 var GITHUB_CLIENT_SECRET = "ca94c84f700899e0e7c42b6a25aad607ac67a74c";
 
-Authentication.init = function(app) {
+Authentication.init = function (app) {
    passport.serializeUser(function (user, done) {
       done(null, user);
    });
@@ -34,7 +34,7 @@ Authentication.init = function(app) {
       }
    ));
 
-   app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
+   app.use(session({ secret: 'jeanbobby le bricoleur', resave: false, saveUninitialized: false }));
    // Initialize Passport!  Also use passport.session() middleware, to support
    // persistent login sessions (recommended).
    app.use(passport.initialize());
@@ -54,10 +54,10 @@ Authentication.init = function(app) {
    app.get('/auth/github',
       passport.authenticate('github', { scope: ['user:email'] }),
       function (req, res) {
-         console.log("lol");
          // The request will be redirected to GitHub for authentication, so this
          // function will not be called.
-      });
+      }
+   );
 
    // GET /auth/github/callback
    //   Use passport.authenticate() as route middleware to authenticate the
@@ -68,12 +68,22 @@ Authentication.init = function(app) {
       passport.authenticate('github', { failureRedirect: '/login' }),
       function (req, res) {
          res.redirect('/');
-      });
+      }
+   );
 
    app.get('/logout', function (req, res) {
       req.logout();
       res.redirect('/');
    });
+
+   app.get('/auth/info', function(req, res) {
+      console.log("GET request at /auth/info")
+      if (req.isAuthenticated()) {
+         res.send(req.user._json);
+      } else {
+         res.send({msg: 'Unauthenticated'});
+      }
+   })
 }
 
 // Simple route middleware to ensure user is authenticated.
@@ -82,6 +92,6 @@ Authentication.init = function(app) {
 //   the request will proceed.  Otherwise, the user will be redirected to the
 //   login page.
 function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) { return next(); }
-  res.redirect('/login')
+   if (req.isAuthenticated()) { return next(); }
+   res.redirect('/login')
 }
