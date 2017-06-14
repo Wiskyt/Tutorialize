@@ -4,8 +4,8 @@
 
     display: flex;
     /**/
-    background-color: darkslategray;
-    color: white;
+    background-color: lightgray;
+    color: black;
     /**/
     font-size: 50px;
     text-align: center;
@@ -24,8 +24,52 @@
 
     height: 100%;
     min-width: 150px;
+    max-width: 180px;
 
-    background-color: darkslategray;
+    position: relative;
+    margin: 0px 50px 0px 0px;
+    padding: 18px 0px 18px 0px;
+}
+
+.login-image {
+   position: absolute;
+   right: 0;
+
+   width: 64px;
+   height: 64px;
+   transition: filter 300ms;
+}
+
+.login-image:hover {
+   filter: brightness(120%);
+}
+
+#add-tutorial-container {
+   position: absolute;
+   left: 0;
+
+   background-color: lightblue;
+
+   width: 64px;
+   height: 64px;
+}
+
+#header-title {
+    display: flex;
+    flex: 8;
+    height: 100%;
+    /* Permet de centrer vericalement et horizontalement */
+    align-items: center;
+    justify-content: center;
+}
+
+#header-control {
+    display: inline-flex;
+    flex: 2;
+
+    height: 100%;
+    
+    background-color: #24201F;
 
     position: relative;
     margin: 0px 50px 0px 0px;
@@ -51,13 +95,4 @@
 
    width: 64px;
    height: 64px;
-}
-
-#header-title {
-    display: flex;
-    flex: 8;
-    height: 100%;
-    /* Permet de centrer vericalement et horizontalement */
-    align-items: center;
-    justify-content: center;
 }
