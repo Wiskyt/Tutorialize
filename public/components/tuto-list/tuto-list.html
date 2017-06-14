@@ -5,16 +5,18 @@
             {{tutorial.description}}
          </div>
          <div class="tutorial-box">
-            {{tutorial.techno}}
+            <img class="tuto-list-img" ng-if="tutorial.techno.hasImg" ng-src="../../data/img/technos/{{tutorial.techno.name}}.png"></img>
+            <span ng-if="!tutorial.techno.hasImg">{{tutorial.techno.name}}</span>
          </div>
          <div class="tutorial-box">
-            <img ng-src="../../data/img/flags/{{tutorial.lang}}.png"></img>
+            <img class="tuto-list-img" ng-src="../../data/img/flags/{{tutorial.lang}}.png"></img>
          </div>
          <div class="tutorial-box">
-            {{tutorial.support}}
+            <img class="tuto-list-img" ng-src="../../data/img/support/{{tutorial.support}}.png"></img>
          </div>
          <div class="tutorial-box">
-            {{tutorial.price}}
+            <img class="tuto-list-img" ng-if="tutorial.price == 'free'" ng-src="../../data/img/free.png"></img>
+            <span ng-if="tutorial.price != 'free'">{{tutorial.price}}</span>
          </div>
          <div class="tutorial-box no-border">
             {{tutorial.date}}
