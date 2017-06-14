@@ -7,31 +7,35 @@ var filters = {
     languages: ["js", "html", "css", "java", "c", "c#", "c++", "php", "python"],
     lang: ["fr", "en"],
     technology: ["AngularJS", "React", "Angular 2", "Angular 4", "jQuery", "NodeJS"],
-    type: ["Video", "Blog", "Github"] 
+    type: ["Video", "Blog", "Github"]
 };
 
-DatabaseManager.init = function(address, port) {
+DatabaseManager.init = function (address, port) {
     log("Database Manager loaded");
 
-    fs.readFile('exampleData.json', 'utf8', function(err, data) {
+    fs.readFile('exampleData.json', 'utf8', function (err, data) {
         if (err) {
             return console.log(err);
         }
-        exampleData = { data: JSON.parse(data) }
+        exampleData = {
+            data: JSON.parse(data)
+        }
         log("Example Database loaded");
     });
 }
 
-DatabaseManager.getExampleData = function() {
+DatabaseManager.getExampleData = function () {
     return exampleData;
 }
 
-DatabaseManager.getTutorialById = function() {
+
+DatabaseManager.getTutorialById = function () {
     return exampleData;
 }
 
-DatabaseManager.getFiltersFor = function(type) {
+DatabaseManager.getFiltersFor = function (type) {
     // TODO
+    log("getFIlterFor" ,filters[type])
     return filters[type] || null;
 }
 
