@@ -1,18 +1,26 @@
-<div class="row tutorial-container" ng-repeat="tutorial in $ctrl.tutorials">
-    <div class="col-md-2">
-        {{tutorial.techno}}
-    </div>
-    <!--<div class="techno" ng-repeat="tutorial in $ctrl.tutorials">
-        <h3> {{tutorial.description}} </h3>
-        <ul>
-               <li>{{tutorial.techno}}</li>
-               <li>{{tutorial.version}}</li>
-               <li>{{tutorial.lang}}</li>
-               <li>{{tutorial.support}}</li>
-               <li>{{tutorial.price}}</li>
-               <li>{{tutorial.date}}</li>
-               <li>{{tutorial.link}}</li>
-        </ul>
-    </div>-->
-
+<div class="tutorials-container container-fluid">
+   <div class="container-fluid row no-pad-marg">
+      <div class="tutorial-container col-md-12" ng-repeat="tutorial in $ctrl.tutorials">
+         <div class="tutorial-box">
+            {{tutorial.description}}
+         </div>
+         <div class="tutorial-box">
+            <img class="tuto-list-img" ng-if="tutorial.techno.hasImg" ng-src="../../data/img/technos/{{tutorial.techno.name}}.png"></img>
+            <span ng-if="!tutorial.techno.hasImg">{{tutorial.techno.name}}</span>
+         </div>
+         <div class="tutorial-box">
+            <img class="tuto-list-img" ng-src="../../data/img/flags/{{tutorial.lang}}.png"></img>
+         </div>
+         <div class="tutorial-box">
+            <img class="tuto-list-img" ng-src="../../data/img/support/{{tutorial.support}}.png"></img>
+         </div>
+         <div class="tutorial-box">
+            <img class="tuto-list-img" ng-if="tutorial.price == 'free'" ng-src="../../data/img/free.png"></img>
+            <span ng-if="tutorial.price != 'free'">{{tutorial.price}}</span>
+         </div>
+         <div class="tutorial-box no-border">
+            {{tutorial.date}}
+         </div>
+      </div>
+   </div>
 </div>
