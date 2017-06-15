@@ -5,8 +5,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
-var authentication = require('./authentication.js');
-authentication.init(app);
+var User = require('./routes/user.js');
+User.init(app);
+
+var Authentication = require('./routes/authentication.js');
+Authentication.init(app, User);
 
 var dbm = require('./database-manager');
 dbm.init();
