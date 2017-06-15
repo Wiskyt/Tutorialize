@@ -77,7 +77,7 @@ Authentication.init = function (app) {
    });
 
    app.get('/auth/info', function(req, res) {
-      console.log("GET request at /auth/info")
+      console.log("GET request at /auth/info")  
       if (req.isAuthenticated()) {
          res.send(req.user._json);
       } else {
