@@ -83,7 +83,6 @@ DatabaseManager.getFiltersFor = function (type) {
    return filters[type] || null;
 }
 
-//API routed
 DatabaseManager.getAllTutos = function () {
    Tuto.find({}, function (err, tutos) {
       console.log('found ', tutos);
@@ -104,6 +103,35 @@ DatabaseManager.postNewTuto = function (body) {
    Tuto.create(tuto, function (err, user) {
       if (err) return handleError(err);
    });
+};
+
+DatabaseManager.init = function (address, port) {
+    log("Database Manager loaded");
+
+    fs.readFile('exampleData.json', 'utf8', function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        exampleData = {
+            data: JSON.parse(data)
+        }
+        log("Example Database loaded");
+    });
+}
+
+DatabaseManager.getExampleData = function () {
+    return exampleData;
+}
+
+
+DatabaseManager.getTutorialById = function () {
+    return exampleData;
+}
+
+DatabaseManager.getFiltersFor = function (type) {
+    // TODO
+    log("getFIlterFor" ,filters[type])
+    return filters[type] || null;
 }
 
 function log(text, ...args) {
