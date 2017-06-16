@@ -25,14 +25,14 @@ DatabaseManager.init = function (address, port) {
 
    // ~~~~~~~~~~~~~ MONGOOSE ~~~~~~~~~~~~~~~~~~~~~~~
 
-
+   // Connexion à l'api
    let uri = 'mongodb://localhost:27017/tuto';
 
    mongoose.connect(uri, (error) => {
       if (error) throw error;
    })
 
-
+   // Déclaration du schema Tuto
    const schemaTuto = new mongoose.Schema({
       title: {
          type: String,
@@ -52,7 +52,7 @@ DatabaseManager.init = function (address, port) {
          required: true
       },
       dateCreate: {
-         type: Date,
+         type: String,
          required: true
       },
       media: {
@@ -64,8 +64,9 @@ DatabaseManager.init = function (address, port) {
             required: false
         },*/
       // timestamps: true
-   });
+   })
 
+   // Déclaration du model à Mongoose
    Tuto = mongoose.model('Tuto', schemaTuto)
 }
 
@@ -83,91 +84,6 @@ DatabaseManager.getFiltersFor = function (type) {
    return filters[type] || null;
 }
 
-//API routed
-DatabaseManager.getAllTutos = function () {
-   Tuto.find({}, function (err, tutos) {
-      console.log('found ', tutos);
-      return tutos;
-   });
-}
-
-DatabaseManager.postNewTuto = function (body) {
-   let tuto = {
-      title: body.title,
-      description: body.description,
-      language: body.language,
-      technologie: body.technologie,
-      dateCreate: body.dateCreate,
-      media: body.media,
-   }
-
-   Tuto.create(tuto, function (err, user) {
-      if (err) return handleError(err);
-   });
-}
-
 function log(text, ...args) {
    console.log("[DBM] ".blue + text.blue, ...args);
 }
-
-    //     .post(function (req, res) {
-    //         var Tuto = new Tutos();
-    //         tuto.title = req.body.title
-    //         tuto.description = req.body.description
-    //         tuto.language = req.body.language
-    //         tuto.technologie = req.body.technologie
-    //         tuto.dateCreate = req.body.dateCreate
-    //         tuto.media = req.body.media
-    //         tuto.comments = req.body.comments
-
-
-    //         Tuto.save(function (err) {
-    //             if (err) {
-    //                 res.send(err);
-    //             }
-    //             res.send({ message: 'Tuto created' });
-    //         })
-    //     });
-
-    // routed
-    //     .route('/:tuto_id')
-    //     .get(function (req, res) {
-    //         Tuto.findOne({ _id: req.params.tuto_id }, function (err, todo) {
-    //             if (err) {
-    //                 res.send(err);
-    //             }
-    //             res.json({ tuto });
-    //         });
-    //     })
-    //     .put(function (req, res) {
-    //         Tuto.findOne({ _id: req.params.tuto_id }, function (err, tuto) {
-    //             if (err) {
-    //                 res.send(err);
-    //             }
-
-    //             tuto.title = req.body.title
-    //             tuto.description = req.body.description
-    //             tuto.language = req.body.language
-    //             tuto.technologie = req.body.technologie
-    //             tuto.dateCreate = req.body.dateCreate
-    //             tuto.media = req.body.media
-    //             tuto.comments = req.body.comments
-
-    //             todo.save(function (err) {
-    //                 if (err) {
-    //                     res.send(err);
-    //                 }
-    //                 res.send({ message: 'Tuto update' });
-    //             });
-    //         });
-    //     })
-    //     .delete(function (req, res) {
-    //         Tuto.remove({ _id: req.params.tuto_id }, function (err) {
-    //             if (err) {
-    //                 res.send(err);
-    //             }
-    //             res.send({ message: 'tuto deleted' });
-    //         });
-    //     });
-    // app.use("/Todo", routed);
-
