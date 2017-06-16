@@ -41,14 +41,12 @@
 }
 
 .login-image:hover {
-   filter: brightness(120%);
+   filter: brightness(140%);
 }
 
-#add-tutorial-container {
+.newtuto-image {
    position: absolute;
    left: 0;
-
-   background-color: lightblue;
 
    width: 64px;
    height: 64px;

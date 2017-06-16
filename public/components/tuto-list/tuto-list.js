@@ -7,14 +7,13 @@ angular.module('tutorialize')
       controller: TutoList
    })
 
-function TutoList($resource) {
-   // Controller
-   var _this = this;
-
+function TutoList($resource, $scope) {
    var availableTechnosIcons = ["passportjs", "angularjs", "nodejs"]; // Array that lists all icons repertoried
 
+   $scope.focusedTuto = 20;
+
    var request = $resource("/data");
-   request.get().$promise.then(function (data) {
+   request.get().$promise.then((data) => {
       let tutorials = data.data;
 
       tutorials.map((e) => {
@@ -22,11 +21,22 @@ function TutoList($resource) {
             name: e.techno,
             hasImg: availableTechnosIcons.indexOf(e.techno) > 0
          }
-         console.log(obj);
          e.techno = obj;
       });
 
-
-      _this.tutorials = tutorials;
+      this.tutorials = tutorials;
+      console.log(tutorials);
    })
+
+   this.tutorialClick = function (index) {
+      if (index == $scope.focusedTuto) {
+         $scope.focusedTuto = -1;
+      } else {
+         $scope.focusedTuto = index;
+      }
+   }
+
+   this.test = function() {
+      console.log("aha");
+   }
 }

@@ -9,6 +9,4 @@ angular.module('tutorialize')
 })
 
 function Home() {
-    console.log("HOME");
-    // Controller
 }

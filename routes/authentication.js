@@ -26,6 +26,7 @@ Authentication.init = function (app, User) {
          process.nextTick(function () {
             
             User.getOrCreate(profile.id, accessToken, refreshToken, done);
+            done(null, profile);
             // To keep the example simple, the user's GitHub profile is returned to
             // represent the logged-in user.  In a typical application, you would want
             // to associate the GitHub account with a user record in your database,

@@ -28,6 +28,11 @@ DatabaseManager.init = function (address, port) {
 
 
 DatabaseManager.getExampleData = function () {
+   let temp = exampleData.data;
+   temp.map((e) => { // Create temporary ratings
+      e.rating = Math.floor(Math.random() * 5) + 1; 
+      return e;
+   })
    return exampleData;
 }
 

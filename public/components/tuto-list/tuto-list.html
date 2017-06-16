@@ -1,26 +1,42 @@
 <div class="tutorials-container container-fluid">
    <div class="container-fluid row no-pad-marg">
-      <div class="tutorial-container col-md-12" ng-repeat="tutorial in $ctrl.tutorials">
-         <div class="tutorial-box">
-            {{tutorial.description}}
+
+      <div class="tutorial-container col-md-12" ng-repeat="tutorial in $ctrl.tutorials" ng-class='{"tutorial-container-focus": $index==$parent.focusedTuto}'>
+         <div class="tutorial-info-wrapper" ng-click='$ctrl.tutorialClick($index)'>
+            <div class="tutorial-box tutorial-description">
+               {{tutorial.description}}
+            </div>
+            <div class="tutorial-box">
+               <img class="tuto-list-img" ng-if="tutorial.techno.hasImg" ng-src="../../data/img/technos/{{tutorial.techno.name}}.png"></img>
+               <span ng-if="!tutorial.techno.hasImg">{{tutorial.techno.name}}</span>
+            </div>
+            <div class="tutorial-box">
+               <img class="tuto-list-img" ng-src="../../data/img/flags/{{tutorial.lang}}.png"></img>
+            </div>
+            <div class="tutorial-box">
+               <img class="tuto-list-img" ng-src="../../data/img/support/{{tutorial.support}}.png"></img>
+            </div>
+            <div class="tutorial-box">
+               <img class="tuto-list-img" ng-if="tutorial.price == 'free'" ng-src="../../data/img/free.png"></img>
+               <span ng-if="tutorial.price != 'free'">{{tutorial.price}}</span>
+            </div>
+            <div class="tutorial-box">
+               {{tutorial.date}}
+            </div>
+            <div class="tutorial-box no-border">
+               Note: {{tutorial.rating}}
+            </div>
          </div>
-         <div class="tutorial-box">
-            <img class="tuto-list-img" ng-if="tutorial.techno.hasImg" ng-src="../../data/img/technos/{{tutorial.techno.name}}.png"></img>
-            <span ng-if="!tutorial.techno.hasImg">{{tutorial.techno.name}}</span>
+
+
+         <div class="tutorial-more" ng-show="$index==$parent.focusedTuto">
+            <a href="{{tutorial.link}}" target="_blank" class="tutorial-link">Go and learn</a>
+            <div class="tutorial-flag">
+               <img ng-src="../../data/img/flag-icon.png" alt="Flag" class="tuto-list-img" ng-click="$ctrl.signal($index)" data-toggle="tooltip"
+                  title="Signal tutorial" data-placement="left" tooltip/>
+            </div>
          </div>
-         <div class="tutorial-box">
-            <img class="tuto-list-img" ng-src="../../data/img/flags/{{tutorial.lang}}.png"></img>
-         </div>
-         <div class="tutorial-box">
-            <img class="tuto-list-img" ng-src="../../data/img/support/{{tutorial.support}}.png"></img>
-         </div>
-         <div class="tutorial-box">
-            <img class="tuto-list-img" ng-if="tutorial.price == 'free'" ng-src="../../data/img/free.png"></img>
-            <span ng-if="tutorial.price != 'free'">{{tutorial.price}}</span>
-         </div>
-         <div class="tutorial-box no-border">
-            {{tutorial.date}}
-         </div>
+
       </div>
    </div>
 </div>
