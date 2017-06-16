@@ -72,7 +72,7 @@
                                             </a>
 
                                         <div id="collapseLan" class="collapse in">
-                                            <div ng-repeat="lang in $ctrl.filLang">
+                                            <div ng-repeat="lang in $ctrl.filters.lang">
 
                                                 <li class="list-group-item list-group-item-warning"><input type="checkbox">{{lang }}</li>
 
@@ -88,9 +88,9 @@
                                             </a>
 
                                         <div id="collapseLang" class="collapse in">
-                                            <div ng-repeat="languages in $ctrl.filLanguages">
+                                            <div ng-repeat="language in $ctrl.filters.languages">
 
-                                                <li class="list-group-item list-group-item-warning"><input type="checkbox">{{languages }}</li>
+                                                <li class="list-group-item list-group-item-warning"><input type="checkbox">{{language}}</li>
 
                                             </div>
                                         </div>
@@ -109,7 +109,7 @@
                                             <span class="glyphicon glyphicon-comment text-success"> </span> Type :
                                             </a>
                                         <div id="collapseType" class="collapse in">
-                                            <div ng-repeat="type in $ctrl.filType">
+                                            <div ng-repeat="type in $ctrl.filters.type">
                                                 <li class="list-group-item list-group-item-warning"><input type="checkbox">{{type }}</li>
                                             </div>
                                         </div>
