@@ -27,7 +27,7 @@
                     <!--<div class="panel panel-default">-->
 
                     <!--<div id="collapseOne" class="panel-collapse collapse in">-->
-                    <div class="panel-body">
+                    <!--<div class="panel-body">
                         <h4 class="panel-title">
                             <span class="glyphicon glyphicon-th"> </span> Trier par
                         </h4>
@@ -51,7 +51,7 @@
                                 </td>
                             </tr>
                         </table>
-                    </div>
+                    </div>-->
                 </div>
                 <!--</div>-->
                 <!--</div>-->
@@ -74,7 +74,10 @@
                                         <div id="collapseLan" class="collapse in">
                                             <div ng-repeat="lang in $ctrl.filLang">
 
-                                                <li class="list-group-item list-group-item-warning"><input type="checkbox">{{lang }}</li>
+                                                <li style=" background-color:#f5f5f0 ; " class="list-group-item ">
+                                                    <label><input type="checkbox" name="checkbox" value="value">{{"  "+lang }}</label>
+                                                    <span class="badge">42</span>
+                                                </li>
 
                                             </div>
                                         </div>
@@ -88,10 +91,14 @@
                                             </a>
 
                                         <div id="collapseLang" class="collapse in">
-                                            <div ng-repeat="languages in $ctrl.filLanguages">
+                                            <div ng-repeat="language in $ctrl.filLanguages">
+                                                <li style=" background-color:#f5f5f0 ; " class="list-group-item">
 
-                                                <li class="list-group-item list-group-item-warning"><input type="checkbox">{{languages }}</li>
 
+                                                    <label><input  type="checkbox" name="checkbox" value="value">{{"  "+language}}</label>
+
+                                                    <span class="badge">0</span>
+                                                </li>
                                             </div>
                                         </div>
                                         <!--<span class="glyphicon glyphicon-comment text-success"></span><a href="javascript:;">Comments</a>-->
@@ -110,7 +117,11 @@
                                             </a>
                                         <div id="collapseType" class="collapse in">
                                             <div ng-repeat="type in $ctrl.filType">
-                                                <li class="list-group-item list-group-item-warning"><input type="checkbox">{{type }}</li>
+                                                <li class="list-group-item " style=" background-color:#f5f5f0 ; ">
+                                                    <label><input type="checkbox" name="checkbox" value="value">{{"  "+type }}</label>
+                                                    <span class="badge">0</span>
+
+                                                </li>
                                             </div>
                                         </div>
                                     </td>
