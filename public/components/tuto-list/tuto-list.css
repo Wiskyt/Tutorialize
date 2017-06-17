@@ -79,10 +79,19 @@
    padding: 0px 5px 0px 5px;
 }
 
+.tutorial-techno {
+   display: flex;
+}
+
+.tutorial-rating-image {
+   width: 100%;
+   margin-left: 10%;
+}
+
 .no-border {
    border: 0;
 }
 
 .tuto-list-img {
-   width: 48px;
+   height: 32px;
 }

@@ -30,7 +30,8 @@ DatabaseManager.init = function (address, port) {
 DatabaseManager.getExampleData = function () {
    let temp = exampleData.data;
    temp.map((e) => { // Create temporary ratings
-      e.rating = Math.floor(Math.random() * 5) + 1; 
+      e.rating = Math.random() * 4.5 + 0.5;
+      e.rating = Math.round(e.rating * 2) / 2;
       return e;
    })
    return exampleData;

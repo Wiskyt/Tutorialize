@@ -8,7 +8,7 @@ angular.module('tutorialize')
    })
 
 function TutoList($resource, $scope) {
-   var availableTechnosIcons = ["passportjs", "angularjs", "nodejs"]; // Array that lists all icons repertoried
+   var availableTechnosIcons = ["passportjs", "angularjs", "nodejs", "MEAN"]; // Array that lists all icons repertoried
 
    $scope.focusedTuto = 20;
 
@@ -17,14 +17,20 @@ function TutoList($resource, $scope) {
       let tutorials = data.data;
 
       tutorials.map((e) => {
-         let obj = {
-            name: e.techno,
-            hasImg: availableTechnosIcons.indexOf(e.techno) > 0
+         let t = e.techno.split(", "), technos = [];
+         for (let i = 0; i < t.length; i++) {
+            let obj = {
+               name: t[i],
+               hasImg: availableTechnosIcons.indexOf(t[i]) > -1
+            }
+            technos.push(obj);
+           //  technos.push(obj); // TODO: Flexbox layout for 2+ icons
          }
-         e.techno = obj;
-      });
 
-      this.tutorials = tutorials;
+         e.techno = technos;
+      });
+      
+      this.tutorials = tutorials.concat(tutorials);
       console.log(tutorials);
    })
 
@@ -36,7 +42,7 @@ function TutoList($resource, $scope) {
       }
    }
 
-   this.test = function() {
+   this.test = function () {
       console.log("aha");
    }
 }
