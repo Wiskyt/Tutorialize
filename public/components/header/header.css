@@ -1,13 +1,13 @@
 #header-container {
     width: 100%;
-    height: 100px;
+    height: 80px;
 
     display: flex;
     /**/
     background-color: lightgray;
     color: black;
     /**/
-    font-size: 50px;
+    font-size: 36px;
     text-align: center;
     padding: 0;
 }
@@ -35,23 +35,21 @@
    position: absolute;
    right: 0;
 
-   width: 64px;
-   height: 64px;
+   width: 48px;
+   height: 48px;
    transition: filter 300ms;
 }
 
 .login-image:hover {
-   filter: brightness(120%);
+   filter: brightness(140%);
 }
 
-#add-tutorial-container {
+.newtuto-image {
    position: absolute;
    left: 0;
 
-   background-color: lightblue;
-
-   width: 64px;
-   height: 64px;
+   width: 48px;
+   height: 48px;
 }
 
 #header-title {
@@ -78,8 +76,8 @@
    position: absolute;
    left: 0;
 
-   width: 64px;
-   height: 64px;
+   width: 48px;
+   height: 48px;
 
    background-image: url("../../data/img/github-logo.png");
    background-size: cover;

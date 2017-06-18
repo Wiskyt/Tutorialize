@@ -1,33 +1,31 @@
-<div class="container">
-    <div class="row">
-
-        <div class="col-sm-3 col-md-3">
-            <div class="panel-group" id="accordion">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <!--Formulaire de recherche -->
-                        <form class="" method="get" role="form" id="form_search">
-                            <label for="form_search"> Trouvez un tuto :</label>
-                            <div class="input-group">
-                                <input type="search" class="form-control" id="txtSearch" aria-label="...">
-                                <div class="input-group-btn">
-                                    <button value="Search" alt="Search Button" type="submit" tabindex="4" form="form_search" id="btnSearch" class="btn btn-danger">
+<div id="searchfield-container">
+   <div class="panel-group" id="accordion">
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            
+            <!--Formulaire de recherche -->
+            <form class="" method="get" role="form" id="form_search">
+               <label for="form_search"> Trouvez un tuto :</label>
+               <div class="input-group">
+                  <input type="search" class="form-control" id="txtSearch" aria-label="...">
+                  <div class="input-group-btn">
+                     <button value="Search" alt="Search Button" type="submit" tabindex="4" form="form_search" id="btnSearch" class="btn btn-danger">
                                             Recherche
                                         </button>
-                                </div>
+                  </div>
 
-                            </div>
-                            <!--<h6 class="panel-title">
+               </div>
+               <!--<h6 class="panel-title">
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-filter">
                             </span >Options recherche</a>
 
                             </h6>-->
-                        </form>
-                    </div>
-                    <!--<div class="panel panel-default">-->
+            </form>
+         </div>
+         <!--<div class="panel panel-default">-->
 
-                    <!--<div id="collapseOne" class="panel-collapse collapse in">-->
-                    <div class="panel-body">
+         <!--<div id="collapseOne" class="panel-collapse collapse in">-->
+         <!--<div class="panel-body">
                         <h4 class="panel-title">
                             <span class="glyphicon glyphicon-th"> </span> Trier par
                         </h4>
@@ -51,72 +49,83 @@
                                 </td>
                             </tr>
                         </table>
-                    </div>
-                </div>
-                <!--</div>-->
-                <!--</div>-->
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-list">
+                    </div>-->
+      </div>
+      <!--</div>-->
+      <!--</div>-->
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            <h4 class="panel-title">
+               <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-list">
                             </span>   Affiner par:</a>
-                        </h4>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <table class="table">
-                                <tr>
-                                    <td>
-                                        <a data-toggle="collapse" data-parent="#collapseTwo" href="#collapseLan">
+            </h4>
+         </div>
+         <div id="collapseTwo" class="panel-collapse collapse in">
+            <div class="panel-body">
+               <table class="table">
+                  <tr>
+                     <td>
+                        <a data-toggle="collapse" data-parent="#collapseTwo" href="#collapseLan">
                                             <span class="glyphicon glyphicon-comment text-success"> </span> Langue :
                                             </a>
 
-                                        <div id="collapseLan" class="collapse in">
-                                            <div ng-repeat="lang in $ctrl.filters.lang">
+                        <div id="collapseLan" class="collapse in">
+                           <div ng-repeat="lang in $ctrl.filters.lang">
 
-                                                <li class="list-group-item list-group-item-warning"><input type="checkbox">{{lang }}</li>
+                              <li style=" background-color:#f5f5f0 ; " class="list-group-item ">
+                                 <label><input type="checkbox" name="checkbox" value="value">{{"  "+lang }}</label>
+                                 <span class="badge">42</span>
+                              </li>
 
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <!--<span class="glyphicon glyphicon-comment text-success"></span><a href="javascript:;">Langages</a>-->
-                                        <a data-toggle="collapse" data-parent="#collapseTwo" href="#collapseLang">
+                           </div>
+                        </div>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <!--<span class="glyphicon glyphicon-comment text-success"></span><a href="javascript:;">Langages</a>-->
+                        <a data-toggle="collapse" data-parent="#collapseTwo" href="#collapseLang">
                                             <span class="glyphicon glyphicon-comment text-success"> </span> Langages :
                                             </a>
 
-                                        <div id="collapseLang" class="collapse in">
-                                            <div ng-repeat="language in $ctrl.filters.languages">
-
-                                                <li class="list-group-item list-group-item-warning"><input type="checkbox">{{language}}</li>
-
-                                            </div>
-                                        </div>
-                                        <!--<span class="glyphicon glyphicon-comment text-success"></span><a href="javascript:;">Comments</a>-->
-                                        <!--<span class="badge">42</span>-->
-                                    </td>
-                                </tr>
+                        <div id="collapseLang" class="collapse in">
+                           <div ng-repeat="language in $ctrl.filters.languages">
+                              <li style=" background-color:#f5f5f0 ; " class="list-group-item">
 
 
+                                 <label><input  type="checkbox" name="checkbox" value="value">{{"  "+language}}</label>
+
+                                 <span class="badge">0</span>
+                              </li>
+                           </div>
+                        </div>
+                        <!--<span class="glyphicon glyphicon-comment text-success"></span><a href="javascript:;">Comments</a>-->
+                        <!--<span class="badge">42</span>-->
+                     </td>
+                  </tr>
 
 
-                                <tr>
-                                    <td>
-                                        <!--<span class="glyphicon glyphicon-comment text-success"></span><a href="javascript:;">Type</a>-->
-                                        <a data-toggle="collapse" data-parent="#collapseTwo" href="#collapseType">
+
+
+                  <tr>
+                     <td>
+                        <!--<span class="glyphicon glyphicon-comment text-success"></span><a href="javascript:;">Type</a>-->
+                        <a data-toggle="collapse" data-parent="#collapseTwo" href="#collapseType">
                                             <span class="glyphicon glyphicon-comment text-success"> </span> Type :
                                             </a>
-                                        <div id="collapseType" class="collapse in">
-                                            <div ng-repeat="type in $ctrl.filters.type">
-                                                <li class="list-group-item list-group-item-warning"><input type="checkbox">{{type }}</li>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                        <div id="collapseType" class="collapse in">
+                           <div ng-repeat="type in $ctrl.filters.type">
+                              <li class="list-group-item " style=" background-color:#f5f5f0 ; ">
+                                 <label><input type="checkbox" name="checkbox" value="value">{{"  "+type }}</label>
+                                 <span class="badge">0</span>
 
-                                <!--<tr>
+                              </li>
+                           </div>
+                        </div>
+                     </td>
+                  </tr>
+
+                  <!--<tr>
                                     <td>
                                         <button value="Search" alt="Search Button" type="submit" tabindex="4" form="form_search" id="btnSearch" class="btn">
                                           Affiner
@@ -124,14 +133,11 @@
                                     </td>
                                 </tr>-->
 
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-
+               </table>
             </div>
-        </div>
+         </div>
+      </div>
 
-    </div>
+
+   </div>
 </div>

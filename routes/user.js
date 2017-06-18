@@ -36,7 +36,7 @@ User.init = function (app) {
 User.getOrCreate = function (githubId, accessToken, refreshToken, callback) {
    this.model.find({githubId: githubId}, (err, user) => {
       if (user[0]) { // Index 0 because id is unique anyway
-         callback() // TODO DO DO DO DODODO DODO DOD DODODO
+       //  callback(); // TODO DO DO DO DODODO DODO DOD DODODO
          
       } else {
          this.create(githubId, accessToken, refreshToken);
