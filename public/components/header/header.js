@@ -9,6 +9,7 @@ angular.module('tutorialize')
 
 function Header($resource) {
    var request = $resource("/auth/info");
+   
    request.get().$promise.then((data) => {
       if (data.msg == "Unauthenticated") {
          this.auth = false;
