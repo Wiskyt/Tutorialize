@@ -1,9 +1,12 @@
-body {
-    margin-top: 50px;
+#searchfield-container {
+   padding: 10px 10px 10px 20px;
+   max-width: 280px;
+   margin: auto;
+   position: sticky;
 }
 
 .glyphicon {
-    margin-right: 10px;
+    margin-right: 3px;
 }
 
 .panel-body {
@@ -11,7 +14,7 @@ body {
 }
 
 .panel-body table tr td {
-    padding-left: 15px
+    padding-left: 15px·
 }
 
 .panel-body .table {
@@ -22,8 +25,7 @@ body {
     margin: 5px
 }
  
- .mgrey
- {
-      background-color:#f5f5f0  !important;
-       border-bottom-color: grey !important;
+ .mgrey {
+   background-color:#f5f5f0  !important;
+   border-bottom-color: grey !important;
  }
