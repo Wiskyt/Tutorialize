@@ -1,0 +1,44 @@
+<div class="tutorial-info-wrapper" ng-click='$ctrl.onTutorialClick($ctrl.index)'>
+   <div class="tutorial-box tutorial-description">
+      <a>{{$ctrl.tutorial.description}}</a>
+   </div>
+
+   <div class="tutorial-box tutorial-techno">
+      <div ng-repeat="techno in $ctrl.tutorial.techno track by $index" class="no-pad-marg">
+         <img class="tuto-list-img" ng-if="techno.hasImg" ng-src="../../data/img/technos/{{techno.name}}.png"></img>
+         <span ng-if="!techno.hasImg">{{techno.name}}</span>
+      </div>
+   </div>
+
+   <div class="tutorial-box">
+      <img class="tuto-list-img" ng-src="../../data/img/flags/{{$ctrl.tutorial.lang}}.png"></img>
+   </div>
+
+   <div class="tutorial-box">
+      <img class="tuto-list-img" ng-src="../../data/img/support/{{$ctrl.tutorial.support}}.png"></img>
+   </div>
+
+   <div class="tutorial-box">
+      <img class="tuto-list-img" ng-if="$ctrl.tutorial.price == 'free'" ng-src="../../data/img/free.png"></img>
+      <span ng-if="$ctrl.tutorial.price != 'free'">{{$ctrl.tutorial.price}}</span>
+   </div>
+
+   <div class="tutorial-box">
+      {{$ctrl.tutorial.date}}
+   </div>
+
+   <div class="tutorial-box no-border">
+      <img class="tutorial-rating-image" ng-src="../../data/img/rating/{{$ctrl.tutorial.rating}}.png" />
+   </div>
+</div>
+
+<div class="tutorial-more" ng-show="$ctrl.index==$parent.focusedTuto">
+   <a href="{{$ctrl.tutorial.link}}" target="_blank" class="tutorial-link">Go and learn</a>
+
+   <img style="width: 200px; height: 200px;" ng-src="../../data/img/webshots/{{$ctrl.tutorial.webshot}}" alt="Preview" />
+
+   <div class="tutorial-flag">
+      <img ng-src="../../data/img/flag-icon.png" alt="Flag" class="tuto-list-img" ng-click="$ctrl.signal($ctrl.index)" data-toggle="tooltip"
+         title="Signal tutorial" data-placement="left" tooltip/>
+   </div>
+</div>

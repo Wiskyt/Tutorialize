@@ -11,20 +11,14 @@ angular.module('tutorialize')
    })
 
 function TutoList($resource, $scope) {
-
-   $scope.focusedTuto = 20;
    
-   console.log(this.tutos);
-
-   this.tutorialClick = function (index) {
+   $scope.focusedTuto = -1;
+   
+   this.onTutorialClick = function (index) {
       if (index == $scope.focusedTuto) {
          $scope.focusedTuto = -1;
       } else {
          $scope.focusedTuto = index;
       }
-   }
-
-   this.test = function () {
-      console.log("aha");
    }
 }
