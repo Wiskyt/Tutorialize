@@ -24,13 +24,7 @@ Authentication.init = function (app, User) {
       function (accessToken, refreshToken, profile, done) {
          // asynchronous verification, for effect...
          process.nextTick(function () {
-            
-            User.getOrCreate(profile.id, accessToken, refreshToken, done);
-            done(null, profile);
-            // To keep the example simple, the user's GitHub profile is returned to
-            // represent the logged-in user.  In a typical application, you would want
-            // to associate the GitHub account with a user record in your database,
-            // and return that user instead.
+            User.onConnection(profile, accessToken, refreshToken, done);
          });
       }
    ));
@@ -80,7 +74,7 @@ Authentication.init = function (app, User) {
    app.get('/auth/info', function(req, res) {
       console.log("GET request at /auth/info")
       if (req.isAuthenticated()) {
-         res.send(req.user._json);
+         res.send(req.user);
       } else {
          res.send({msg: 'Unauthenticated'});
       }

@@ -41,6 +41,8 @@
          <div class="tutorial-more" ng-show="$index==$parent.focusedTuto">
             <a href="{{tutorial.link}}" target="_blank" class="tutorial-link">Go and learn</a>
             
+            <img style="width: 200px; height: 200px;" ng-src="../../data/img/webshots/{{tutorial.webshot}}" alt="Preview"/>
+            
             <div class="tutorial-flag">
                <img ng-src="../../data/img/flag-icon.png" alt="Flag" class="tuto-list-img" ng-click="$ctrl.signal($index)" data-toggle="tooltip"
                   title="Signal tutorial" data-placement="left" tooltip/>
