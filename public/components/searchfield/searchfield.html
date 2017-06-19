@@ -37,9 +37,13 @@
                     <table class="table">
                         <tr>
                             <td>
-                                <a data-toggle="collapse" data-parent="#collapseTwo" href="#collapseLan"><span class="glyphicon glyphicon-comment text-success"> </span> Langue :</a>
 
-                                <div id="collapseLan" class="collapse in">
+                                <a data-toggle="collapse" data-parent="#collapseTwo" href="#collapseLan"><span class="glyphicon glyphicon-comment text-success"> </span> Langue
+                                <span class=" glyphicon glyphicon-chevron-down" ></span>
+                                
+                                 </a>
+
+                                <div id="collapseLan" class="collapse ">
                                     <div ng-repeat="lang in $ctrl.filters.lang" class="checkbox">
 
                                         <li style=" background-color:#f5f5f0 ; " class="list-group-item ">
@@ -56,10 +60,11 @@
                         <tr>
                             <td>
                                 <a data-toggle="collapse" data-parent="#collapseTwo" href="#collapseLang">
-                                            <span class="glyphicon glyphicon-comment text-success"> </span> Langages :
+                                            <span class="glyphicon glyphicon-comment text-success"> </span> Langages 
+                                             <span class=" glyphicon glyphicon-chevron-down" ></span>
                                             </a>
 
-                                <div id="collapseLang" class="collapse in">
+                                <div id="collapseLang" class="collapse ">
                                     <div ng-repeat="language in $ctrl.filters.languages" class="checkbox">
                                         <li class="list-group-item">
 
@@ -74,9 +79,10 @@
                         <tr>
                             <td>
                                 <a data-toggle="collapse" data-parent="#collapseTwo" href="#collapseType">
-                                            <span class="glyphicon glyphicon-comment text-success"> </span> Type :
+                                            <span class="glyphicon glyphicon-comment text-success"> </span> Type 
+                                             <span class=" glyphicon glyphicon-chevron-down" ></span>
                                             </a>
-                                <div id="collapseType" class="collapse in">
+                                <div id="collapseType" class="collapse">
                                     <div ng-repeat="type in $ctrl.filters.type" class="checkbox">
                                         <li class="list-group-item " style=" background-color:#f5f5f0 ; ">
                                             <label><input type="checkbox" name="checkbox" value="value">{{type }}</label>
