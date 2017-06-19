@@ -9,7 +9,7 @@
             </div>
            
             <div class="tutorial-box tutorial-techno">
-               <div ng-repeat="techno in tutorial.techno track by $index" class="no-pad-marg">
+               <div ng-repeat="techno in tutorial.techno track by $index " class="no-pad-marg">
                   <img class="tuto-list-img" ng-if="techno.hasImg" ng-src="../../data/img/technos/{{techno.name}}.png"></img>
                   <span ng-if="!techno.hasImg">{{techno.name}}</span>
                </div>
