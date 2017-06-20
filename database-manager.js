@@ -45,6 +45,7 @@ DatabaseManager.getExampleData = function () {
       e.webshot = temp.webshot;
       return e;
    })
+   
    return exampleData;
 }
 

@@ -15,16 +15,16 @@
    </div>
 
    <div class="tutorial-box">
-      <img class="tuto-list-img" ng-src="../../data/img/support/{{$ctrl.tutorial.support}}.png"></img>
+      <img class="tuto-list-img" ng-src="../../data/img/media/{{$ctrl.tutorial.media}}.png"></img>
    </div>
 
    <div class="tutorial-box">
-      <img class="tuto-list-img" ng-if="$ctrl.tutorial.price == 'free'" ng-src="../../data/img/free.png"></img>
-      <span ng-if="$ctrl.tutorial.price != 'free'">{{$ctrl.tutorial.price}}</span>
+      <img class="tuto-list-img" ng-if="$ctrl.tutorial.price == 0" ng-src="../../data/img/free.png"></img>
+      <span ng-if="$ctrl.tutorial.price != 0">{{$ctrl.tutorial.price}}</span>
    </div>
 
    <div class="tutorial-box">
-      {{$ctrl.tutorial.date}}
+      {{$ctrl.tutorial.dateCreate}}
    </div>
 
    <div class="tutorial-box no-border">

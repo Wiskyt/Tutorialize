@@ -6,9 +6,12 @@ Tutoriels :
       Number (Float 0.0 to 5.0)
    ]
    - lang (String 2 | Locale : fr, en)
-   - techno (Angular, React)
-   - dateCreation (Timestamp)
-   - support (vidéo, texte)
+   - techno [
+      String (Angular, React)
+   ]
+   - dateCreation (Date) 
+   - datePost (Date)
+   - media (video, github)
    - author (String)
    - price (Number)
    - isValid (Boolean)
