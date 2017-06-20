@@ -1,3 +1,20 @@
 <h2> Hello NewTuto </h2>
 
 <!--Actual modal for posting a new tutorial-->
+
+<form class="simple-form">
+  <label>Titre: <input type="text" ng-model="$ctrl.tuto.title"></label><br>
+  <label>Description: <input type="text" ng-model="$ctrl.tuto.description"></label><br> 
+  <label>Langue : <input type="text" ng-model="$ctrl.tuto.lang"></label><br> 
+  <label>Techno : <input type="text" ng-model="$ctrl.tuto.techno"></label><br> 
+  <label>Media : <input type="text" ng-model="$ctrl.tuto.media"></label><br>
+  <label>Price : <input type="number" ng-model="$ctrl.tuto.price"></label><br>
+  <label>Link : <input type="text" ng-model="$ctrl.tuto.link"></label><br>
+
+  
+  <input type="button" ng-click="$ctrl.send()" value="Valider" />
+</form>
+
+
+<!--<pre>user = {{user | json}}</pre>
+<pre>master = {{master | json}}</pre>-->
