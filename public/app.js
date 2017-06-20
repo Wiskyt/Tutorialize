@@ -36,15 +36,15 @@ angular.module('tutorialize', [
    });
 
 function Config($stateProvider, $urlRouterProvider) {
-   const states = [{
-      name: 'home',
-      url: '/',
-      component: 'home'
-   }];
-
-   states.forEach((state) => {
-      $stateProvider.state(state)
-   });
+    const states = [{
+        name: 'home',
+        url: '/',
+        component: 'home'
+    }];
+    
+    states.forEach((state) => {
+        $stateProvider.state(state)
+    });
 
    $urlRouterProvider.otherwise('/');
 }

@@ -13,11 +13,5 @@ angular.module('tutorialize')
    })
 
 function searchfield($resource) {
-   var resFilters = $resource("/filters");
-
-   resFilters.get().$promise.then((filters) => {
-      this.filters = filters;
-
-      console.log(filters);
-   })
+ 
 }
