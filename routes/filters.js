@@ -2,7 +2,7 @@ var Filters = module.exports = {};
 
 var filters = {
    language: ["JS", "HTML", "CSS"],
-   lang: ["Français", "English"],
+   lang: ["French", "English"],
    techno: ["AngularJS", "React", "Angular 2", "Angular 4", "jQuery", "NodeJS"],
    media: ["Video", "Website", "Github"],
    price: {min: 0, max: 50}

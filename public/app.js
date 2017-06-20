@@ -13,7 +13,8 @@ const run = [
 
 angular.module('tutorialize', [
    'ui.router',
-   'ngResource'
+   'ngResource',
+   'ngAnimate'
    // HERE LIST YOUR MODULES
 ])
 

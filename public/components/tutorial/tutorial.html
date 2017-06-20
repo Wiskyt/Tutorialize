@@ -1,6 +1,6 @@
 <div class="tutorial-info-wrapper" ng-click='$ctrl.onTutorialClick($ctrl.index)'>
    <div class="tutorial-box tutorial-description">
-      <a>{{$ctrl.tutorial.description}}</a>
+      <a>{{$ctrl.tutorial.title}}</a>
    </div>
 
    <div class="tutorial-box tutorial-techno">
@@ -32,10 +32,23 @@
    </div>
 </div>
 
-<div class="tutorial-more" ng-show="$ctrl.index==$parent.focusedTuto">
-   <a href="{{$ctrl.tutorial.link}}" target="_blank" class="tutorial-link">Go and learn</a>
 
-   <img style="width: 200px; height: 200px;" ng-src="../../data/img/webshots/{{$ctrl.tutorial.webshot}}" alt="Preview" />
+<!-- ON CLICK -> MORE INFO -->
+
+<div class="tutorial-more" ng-show="$ctrl.index==$parent.focusedTuto">
+   <a href="{{$ctrl.tutorial.link}}" target="_blank">
+      <img class="tutorial-webshot" ng-src="../../data/img/webshots/userauthenticationwiththemeanstack.png" alt="Site Preview"/>
+   </a>
+
+   <div class="tutorial-more-body">
+      <p>{{$ctrl.tutorial.description}}</p>
+
+      <a href="{{$ctrl.tutorial.link}}" target="_blank" class="tutorial-link">Go and learn</a>
+
+      <div class="tutorial-footer">
+         Posé par {{$ctrl.tutorial.author || 'Inconnu'}} le {{$ctrl.tutorial.datePost || 'un jour'}}
+      </div>
+   </div>
 
    <div class="tutorial-flag">
       <img ng-src="../../data/img/flag-icon.png" alt="Flag" class="tuto-list-img" ng-click="$ctrl.signal($ctrl.index)" data-toggle="tooltip"

@@ -17,7 +17,8 @@ Tutoriels :
    - isValid (Boolean)
    - flags [
       {
-         date: timestamp
+         date: timestamp,
+         author: String
       }
    ]
    - link (String)
