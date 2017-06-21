@@ -4,6 +4,16 @@ var webshot = require('webshot');
 var Tuto = module.exports = {};
 Tuto.init = function (app, routed) {
 
+   // Allow export of virtuals variables !
+   /*   var options = {
+         toObject: {
+            virtuals: true
+         },
+         toJSON: {
+            virtuals: true
+         }
+      };*/
+
    const schema = new mongoose.Schema({
       title: {
          type: String,
@@ -13,10 +23,14 @@ Tuto.init = function (app, routed) {
          type: String,
          required: true,
       },
-      rating: [{
+      ratings: [{
          grade: Number,
-         authorId: String,
-         dateRate: Date
+         authorId: mongoose.Schema.Types.ObjectId,
+         dateRate: {
+            type: Date,
+            default: Date.now()
+         },
+         _id: false
       }],
       lang: {
          type: String,
@@ -24,7 +38,8 @@ Tuto.init = function (app, routed) {
       },
       techno: [{
          type: String,
-         required: true
+         required: true,
+         _id: false
       }],
       media: {
          type: String,
@@ -32,7 +47,10 @@ Tuto.init = function (app, routed) {
       },
       author: String,
       price: Number,
-      isValid: Boolean,
+      isValid: {
+         type: Boolean,
+         default: false
+      },
       link: {
          type: String,
          required: true
@@ -55,7 +73,7 @@ Tuto.init = function (app, routed) {
          }
       }]
       // comments: {}
-   })
+   }/*, options*/);
 
    // Déclaration du model à Mongoose
    const Tuto = mongoose.model('Tuto', schema)
@@ -63,14 +81,29 @@ Tuto.init = function (app, routed) {
 
    routed
       .route('/')
+
+      /*GET*/
       .get(function (req, res) {
          Tuto.find(function (err, tuto) {
             if (err) {
                res.send(err);
             }
+
+            if (tuto) {
+               tuto = tuto.map((t) => {
+                  let n = JSON.parse(JSON.stringify(t));
+                  n.averageRating = getAverageRating(t.ratings);
+                  return n;
+               })
+
+               console.log(tuto);
+            }
+            
             res.json({ tuto });
          });
       })
+
+      /*POST*/
       .post(function (req, res) {
          var tuto = new Tuto();
          tuto.title = req.body.title;
@@ -81,8 +114,7 @@ Tuto.init = function (app, routed) {
          tuto.author = req.body.author;
          tuto.price = req.body.price;
          tuto.link = req.body.link;
-         tuto.isValid = 'false';
-         tuto.dateCreate = new Date();
+         tuto.ratings = req.body.ratings; // TODO: Remove this line in production mode
 
          tuto.webshot = tuto.description.replace(/\s+/g, '').toLowerCase() + '.png';
          webshot(tuto.link, './public/data/img/webshots/' + tuto.webshot, function (err) {
@@ -99,6 +131,8 @@ Tuto.init = function (app, routed) {
             }
          })
       });
+
+
    // Route pour Update les informations
    routed
       .route('/:tuto_id')
@@ -141,4 +175,9 @@ Tuto.init = function (app, routed) {
       });
 
    app.use("/tuto", routed);
+}
+
+// Calculates the average rating (Sum with reduce, / length for avg) Rounded and divided to get a 0.5 rounded rating !
+function getAverageRating(ratings) {
+   return Math.round(ratings.reduce((a, b) => { return { grade: a.grade + b.grade } }).grade / ratings.length * 2) / 2;
 }

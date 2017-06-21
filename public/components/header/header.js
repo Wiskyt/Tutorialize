@@ -26,7 +26,7 @@ function Header($resource, $http) {
             {
                 title: 'Tuto1',
                 description: 'C\'est le tuto 1',
-                rating: [
+                ratings: [
                     {
                         grade: '5',
                     },
@@ -48,7 +48,7 @@ function Header($resource, $http) {
             {
                 title: 'Tuto2',
                 description: 'C\'est le tuto 2',
-                rating: [
+                ratings: [
                     {
                         grade: '1',
                     },
@@ -70,7 +70,7 @@ function Header($resource, $http) {
             {
                 title: 'Tuto3',
                 description: 'C\'est le tuto 3',
-                rating: [
+                ratings: [
                     {
                         grade: '1',
                     },
