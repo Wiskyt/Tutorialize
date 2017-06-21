@@ -35,9 +35,9 @@
 
 <!-- ON CLICK -> MORE INFO -->
 
-<div class="tutorial-more" ng-if="$ctrl.index==$parent.focusedTuto">
+<div class="tutorial-more" ng-if="$ctrl.index==$ctrl.focusedTuto">
    <a href="{{$ctrl.tutorial.link}}" target="_blank">
-      <img class="tutorial-webshot" ng-src="/data/img/webshots/userauthenticationwiththemeanstack.png" alt="Site Preview"/>
+      <img class="tutorial-webshot" ng-src="/data/img/webshots/{{$ctrl.tutorial.webshot}}" alt="Site Preview"/>
    </a>
 
    <div class="tutorial-more-body">
