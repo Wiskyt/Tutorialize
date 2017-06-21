@@ -8,7 +8,8 @@ angular.module('tutorialize')
     bindings: {
        tutorial: '<',
        onTutorialClick: '=',
-       index: '<'
+       index: '<',
+       focusedTuto: '@'
     }
 })
 

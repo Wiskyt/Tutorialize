@@ -12,13 +12,13 @@ angular.module('tutorialize')
 
 function TutoList($resource, $scope) {
    
-   $scope.focusedTuto = -1;
+   this.focusedTuto = -1;
    
-   this.onTutorialClick = function (index) {
-      if (index == $scope.focusedTuto) {
-         $scope.focusedTuto = -1;
+   this.onTutorialClick = (index) => {
+      if (index == this.focusedTuto) {
+         this.focusedTuto = -1;
       } else {
-         $scope.focusedTuto = index;
+         this.focusedTuto = index;
       }
    }
 }
