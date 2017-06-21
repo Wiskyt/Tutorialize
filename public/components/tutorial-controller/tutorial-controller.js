@@ -21,11 +21,12 @@ function requestTutorials(self, $resource) {
    var availableTechnosIcons = ["passportjs", "angularjs", "nodejs", "mean"]; // Array that lists all icons repertoried
 
    let request = $resource('/tuto');
-   request.get().$promise.then((data) => {
+   request.get().$promise.then((data) => { // REQUETE DES TUTORIELS
       console.log(data);
       let tutorials = data.tuto;
 
-      tutorials.map((e) => {
+      tutorials.map((e) => { // On parcours les tutos pour savoir si il est possible de remplacer le txt techno par une image
+
          let technos = [];
          for (let i = 0; i < e.techno.length; i++) {
             let obj = {
@@ -33,33 +34,35 @@ function requestTutorials(self, $resource) {
                hasImg: availableTechnosIcons.indexOf(e.techno[i].toLowerCase()) > -1
             }
             technos.push(obj);
-            //  technos.push(obj); // TODO: Flexbox layout for 2+ icons
          }
-
          e.techno = technos;
 
+         // On convertis la date en format lisible
+      
+         e.datePost = new Date(e.datePost).toLocaleDateString();
+         e.dateCreate = new Date(e.dateCreate).toLocaleDateString();
 
-         let dt = new Date(e.datePost);
-         e.datePost = dt.toLocaleDateString();
+         return e;
       });
 
       self.tutos = tutorials;
 
-   }).then(() => {
-      if (!self.filters.static) {
+   }).then(() => { // REQUETE DES FILTRES
+      if (!self.filters.static) { // si on les a pas encore
          var resFilters = $resource("/filters");
 
-         resFilters.get().$promise.then((filters) => {
+         resFilters.get().$promise.then((filters) => { // On calcule les count de tutos
             self.filters.static = filters;
             self.filtersCount = calculateFiltersCount(self.filters.static, self.tutos);
          })
-      } else {
+      } else { // sinon calcule juste
          self.filtersCount = calculateFiltersCount(self.filters, self.tutos);
       }
    })
 }
 
-function calculateFiltersCount(filters, tutos) {
+// fonction obscure qui compte les filtres
+function calculateFiltersCount(filters, tutos) { 
 
    console.log(filters, tutos);
    console.log('-------------------------------------');
@@ -105,6 +108,7 @@ function calculateFiltersCount(filters, tutos) {
    console.log(count);
 }
 
+// Initie un array de taille size avec value comme valeur
 function initArray(size, value) {
    let arr = [];
    for (let i = 0; i < size; i++) {
