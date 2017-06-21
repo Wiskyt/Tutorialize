@@ -1,24 +1,40 @@
 'use strict'
 
 const config = [
-    '$stateProvider',
-    '$urlRouterProvider',
-    Config
+   '$stateProvider',
+   '$urlRouterProvider',
+   Config
 ]
 
 const run = [
-    '$state',
-    Run
+   '$state',
+   Run
 ]
 
 angular.module('tutorialize', [
-    'ui.router',
-    'ngResource'
-    // HERE LIST YOUR MODULES
+   'ui.router',
+   'ngResource',
+   'ngAnimate'
+   // HERE LIST YOUR MODULES
 ])
 
-.config(config)
-    .run(run)
+   .config(config)
+   .run(run)
+
+   .directive('tooltip', function () {
+      return {
+         restrict: 'A',
+         link: function (scope, element, attrs) {
+            $(element).hover(function () {
+               // on mouseenter
+               $(element).tooltip('show');
+            }, function () {
+               // on mouseleave
+               $(element).tooltip('hide');
+            });
+         }
+      };
+   });
 
 function Config($stateProvider, $urlRouterProvider) {
     const states = [{
@@ -26,16 +42,16 @@ function Config($stateProvider, $urlRouterProvider) {
         url: '/',
         component: 'home'
     }];
-
+    
     states.forEach((state) => {
         $stateProvider.state(state)
     });
 
-    $urlRouterProvider.otherwise('/');
+   $urlRouterProvider.otherwise('/');
 }
 
 function Run($state) {
-    if (!navigator.onLine) {
-        $state.go('offline')
-    }
+   if (!navigator.onLine) {
+      $state.go('offline')
+   }
 }
