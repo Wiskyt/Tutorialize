@@ -12,6 +12,6 @@ angular.module('tutorialize')
       }
    })
 
-function searchfield($resource) {
+function searchfield($resource) { 
  
 }

@@ -1,10 +1,11 @@
 var Filters = module.exports = {};
 
 var filters = {
-   languages: ["js", "html", "css", "java", "c", "c#", "c++", "php", "python"],
-   lang: ["fr", "en"],
-   technology: ["AngularJS", "React", "Angular 2", "Angular 4", "jQuery", "NodeJS"],
-   type: ["Video", "Blog", "Github"]
+   language: ["JS", "HTML", "CSS"],
+   lang: ["Français", "English"],
+   techno: ["AngularJS", "React", "Angular 2", "Angular 4", "jQuery", "NodeJS"],
+   media: ["Video", "Website", "Github"],
+   price: {min: 0, max: 50}
 };
 
 Filters.init = function (app) {

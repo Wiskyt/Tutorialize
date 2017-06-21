@@ -8,7 +8,7 @@
 
                 <!--Formulaire de recherche -->
                 <form class="" method="get" role="form" id="form_search">
-                    <label for="form_search"> Trouvez un tuto :</label>
+                    <label for="form_search"> Trouvez un tuto </label>
                     <div class="input-group">
                         <input type="search" class="form-control" id="txtSearch" aria-label="..." />
                         <div class="input-group-btn">
@@ -20,13 +20,13 @@
             </div>
 
         </div>
-
+        {{$ctrl.count}}
         <div class="panel panel-default">
 
             <div class="panel-heading">
 
                 <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-list"></span>   Affiner par:</a>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-list"></span>   Affiner par</a>
                 </h4>
             </div>
 
@@ -39,15 +39,15 @@
                             <td>
 
                                 <a data-toggle="collapse" data-parent="#collapseTwo" href="#collapseLan"><span class="glyphicon glyphicon-comment text-success"> </span> Langue
-                                <span class=" glyphicon glyphicon-chevron-down" ></span>
+                                <span class=" glyphicon glyphicon-chevron-down pull-right" ></span>
                                 
                                  </a>
 
                                 <div id="collapseLan" class="collapse ">
-                                    <div ng-repeat="lang in $ctrl.filters.lang" class="checkbox">
+                                    <div ng-repeat="lang in $ctrl.filters.static.lang" class="checkbox">
 
-                                        <li  class="list-group-item ">
-                                            <label><input type="checkbox" name="checkbox" value="value">{{lang }}</label>
+                                        <li class="list-group-item ">
+                                            <label><input type="checkbox" name="checkbox" value="value">{{lang}}</label>
                                             <span class="badge">42</span>
                                         </li>
 
@@ -61,11 +61,11 @@
                             <td>
                                 <a data-toggle="collapse" data-parent="#collapseTwo" href="#collapseLang">
                                             <span class="glyphicon glyphicon-comment text-success"> </span> Langages 
-                                             <span class=" glyphicon glyphicon-chevron-down" ></span>
+                                             <span class=" glyphicon glyphicon-chevron-down pull-right" ></span>
                                             </a>
 
                                 <div id="collapseLang" class="collapse ">
-                                    <div ng-repeat="language in $ctrl.filters.languages" class="checkbox">
+                                    <div ng-repeat="language in $ctrl.filters.static.language" class="checkbox">
                                         <li class="list-group-item">
 
                                             <label><input  type="checkbox" name="checkbox" value="value">{{language}}</label>
@@ -76,16 +76,18 @@
                             </td>
                         </tr>
 
+
+
                         <tr>
                             <td>
-                                <a data-toggle="collapse" data-parent="#collapseTwo" href="#collapseType">
-                                            <span class="glyphicon glyphicon-comment text-success"> </span> Type 
-                                             <span class=" glyphicon glyphicon-chevron-down" ></span>
+                                <a data-toggle="collapse" data-parent="#collapseTwo" href="#collapseMedia">
+                                            <span class="glyphicon glyphicon-comment text-success"> </span> Media 
+                                             <span class=" glyphicon glyphicon-chevron-down pull-right" ></span>
                                             </a>
-                                <div id="collapseType" class="collapse">
-                                    <div ng-repeat="type in $ctrl.filters.type" class="checkbox">
-                                        <li class="list-group-item " >
-                                            <label><input type="checkbox" name="checkbox" value="value">{{type }}</label>
+                                <div id="collapseMedia" class="collapse">
+                                    <div ng-repeat="media in $ctrl.filters.static.media   " class="checkbox">
+                                        <li class="list-group-item ">
+                                            <label><input type="checkbox" name="checkbox" value="value">{{media}}</label>
                                             <span class="badge">0</span>
 
                                         </li>
@@ -93,6 +95,28 @@
                                 </div>
                             </td>
                         </tr>
+
+                        <tr>
+                            <td>
+                                <a data-toggle="collapse" data-parent="#collapseTwo" href="#collapseTechno">
+                                            <span class="glyphicon glyphicon-comment text-success"> </span> Techno 
+                                             <span class=" glyphicon glyphicon-chevron-down pull-right" ></span>
+                                            </a>
+                                <div id="collapseTechno" class="collapse">
+                                    <div ng-repeat="tech in $ctrl.filters.static.techno   " class="checkbox">
+                                        <li class="list-group-item ">
+                                            <label><input type="checkbox" name="checkbox" value="value">{{tech}}</label>
+                                            <span class="badge">0</span>
+
+                                        </li>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+
+
+
                     </table>
                 </div>
             </div>
