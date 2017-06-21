@@ -2,39 +2,46 @@
 <html lang='en' ng-app='tutorialize'>
 
 <head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-    <title>Tutorialize</title>
-    <link rel='stylesheet' href='./node_modules/bootstrap/dist/css/bootstrap.min.css'>
+   <meta charset='UTF-8'>
+   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+   <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+   <title>Tutorialize</title>
+   <link rel='stylesheet' href='./node_modules/bootstrap/dist/css/bootstrap.min.css'>
 
-    <link rel='stylesheet' href='./views/home/home.css'>
+   <link rel='stylesheet' href='./views/home/home.css'>
 
-    <link rel='stylesheet' href='./components/tuto-list/tuto-list.css'>
-    <link rel='stylesheet' href='./components/header/header.css'>
+   <link rel='stylesheet' href='./components/tutorial/tutorial.css'>
+   <link rel='stylesheet' href='./components/tutorial-controller/tutorial-controller.css'>
+   <link rel='stylesheet' href='./components/searchfield/searchfield.css'>
+   <link rel='stylesheet' href='./components/tuto-list/tuto-list.css'>
+   <link rel='stylesheet' href='./components/header/header.css'>
 </head>
 
 <body>
 
+   <header></header>
 
-    <header></header>
-    <searchfild> </searchfild> 
+   <ui-view></ui-view>
 
-    <ui-view></ui-view>
+   <newtuto></newtuto>
 
-    <script src='./node_modules/angular/angular.min.js'></script>
-    <script src='./node_modules/angular-resource/angular-resource.min.js'></script>
-    <script src='./node_modules/@uirouter/angularjs/release/angular-ui-router.min.js'></script>
+   <script src='./node_modules/angular/angular.min.js'></script>
+   <script src='./node_modules/angular-resource/angular-resource.min.js'></script>
+   <script src='./node_modules/@uirouter/angularjs/release/angular-ui-router.min.js'></script>
+   <script src="./node_modules/angular-animate/angular-animate.min.js"></script>
+   
+   <script src='./node_modules/jquery/dist/jquery.min.js'></script>
+   <script src='./node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
 
-    <script src='./node_modules/jquery/dist/jquery.min.js'></script>
-    <script src='./node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
+   <script src='./app.js'></script>
 
-    <script src='./app.js'></script>
-
-    <script src='./views/home/home.js'></script>
-    <script src='./components/header/header.js'></script>
-    <script src='./components/searchfield/searchfield.js'></script>
-    <script src='./components/tuto-list/tuto-list.js'></script>
+   <script src='./views/home/home.js'></script>
+   <script src='./components/header/header.js'></script>
+   <script src='./components/tutorial/tutorial.js'></script>
+   <script src='./components/tutorial-controller/tutorial-controller.js'></script>
+   <script src='./components/searchfield/searchfield.js'></script>
+   <script src='./components/tuto-list/tuto-list.js'></script>
+   <script src='./components/newtuto/newtuto.js'></script>
 </body>
 
 </html>

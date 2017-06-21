@@ -1,27 +1,8 @@
 <div class="tutorials-container container-fluid">
    <div class="container-fluid row no-pad-marg">
-      <div class="tutorial-container col-md-12 row" ng-repeat="tutorial in $ctrl.tutorials">
-         <div class="tutorial-box">
-            {{tutorial.description}}
-         </div>
-         <div class="tutorial-box">
-            {{tutorial.techno}}
-         </div>
-         <div class="tutorial-box">
-            {{tutorial.lang}}
-         </div>
-         <div class="tutorial-box">
-            {{tutorial.support}}
-         </div>
-         <div class="tutorial-box">
-            {{tutorial.price}}
-         </div>
-         <div class="tutorial-box">
-            {{tutorial.description}}
-         </div>
-         <div class="tutorial-box">
-            {{tutorial.date}}
-         </div>
+
+      <div class="tutorial-container col-md-12" ng-repeat="tutorial in $ctrl.tutos track by $index" ng-class='{"tutorial-container-focus": $index==$parent.focusedTuto}'>
+         <tutorial tutorial="tutorial" on-tutorial-click="$ctrl.onTutorialClick" index="$index"></tutorial> <!-- La belle ligne de code -->
       </div>
    </div>
 </div>

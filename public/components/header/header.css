@@ -1,13 +1,13 @@
 #header-container {
     width: 100%;
-    height: 100px;
+    height: 80px;
 
     display: flex;
     /**/
-    background-color: darkslategray;
-    color: white;
+    background-color: lightgray;
+    color: black;
     /**/
-    font-size: 50px;
+    font-size: 36px;
     text-align: center;
     padding: 0;
 }
@@ -24,8 +24,48 @@
 
     height: 100%;
     min-width: 150px;
+    max-width: 180px;
 
-    background-color: darkslategray;
+    position: relative;
+    margin: 0px 50px 0px 0px;
+    padding: 18px 0px 18px 0px;
+}
+
+.login-image {
+   position: absolute;
+   right: 0;
+
+   width: 48px;
+   height: 48px;
+   transition: filter 300ms;
+}
+
+.login-image:hover {
+   filter: brightness(140%);
+}
+
+.newtuto-image {
+   position: absolute;
+   left: 0;
+
+   width: 48px;
+   height: 48px;
+}
+
+#header-title {
+    display: flex;
+    flex: 8;
+    height: 100%;
+    /* Permet de centrer vericalement et horizontalement */
+    align-items: center;
+    justify-content: center;
+}
+
+#header-control {
+    display: inline-flex;
+    flex: 2;
+
+    height: 100%;
 
     position: relative;
     margin: 0px 50px 0px 0px;
@@ -36,8 +76,8 @@
    position: absolute;
    left: 0;
 
-   width: 64px;
-   height: 64px;
+   width: 48px;
+   height: 48px;
 
    background-image: url("../../data/img/github-logo.png");
    background-size: cover;
@@ -51,13 +91,4 @@
 
    width: 64px;
    height: 64px;
-}
-
-#header-title {
-    display: flex;
-    flex: 8;
-    height: 100%;
-    /* Permet de centrer vericalement et horizontalement */
-    align-items: center;
-    justify-content: center;
 }
