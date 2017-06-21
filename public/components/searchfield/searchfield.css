@@ -1,0 +1,35 @@
+#searchfield-container {
+    padding: 10px 10px 10px 20px;
+    max-width: 280px;
+    margin: auto;
+    position: sticky;
+}
+
+.glyphicon {
+    margin-right: 3px;
+}
+
+.panel-body {
+    padding: 0px;
+}
+
+.panel-body table tr td {
+    padding-left: 15px·
+}
+
+.panel-body .table {
+    margin-bottom: 0px;
+}
+
+.list-group-item:last-child {
+    margin: 5px
+}
+
+.list-group-item {
+    background-color: #f5f5f0;
+}
+
+.list-group-item label:hover {
+    color: #FF0000;
+    text-decoration: underline;
+}

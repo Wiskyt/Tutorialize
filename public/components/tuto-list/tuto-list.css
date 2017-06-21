@@ -1,0 +1,36 @@
+/* Parent of tutorials */
+.tutorials-container {
+   padding: 0px 35px 0px 0px;
+}
+
+/* Single tutorial container */
+.tutorial-container {
+   height: 90px;
+   transition: height ease-out 400ms;
+   
+   overflow: hidden;
+
+   margin: 10px 0px 15px 0px;
+   padding: 0;
+
+   background-color: lightgray;
+
+   box-shadow: 5px 5px 4px #888888;
+   border-radius: 5px;
+}
+
+.tutorial-container-focus {
+   height: 250px;
+}
+
+.tutorial-container-focus.ng-animate {
+   animation: none 0s;
+}
+
+.no-border {
+   border: 0;
+}
+
+.tuto-list-img {
+   height: 32px;
+}
