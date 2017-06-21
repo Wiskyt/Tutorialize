@@ -1,16 +1,21 @@
 <div id="header-container">
+      <button ng-click="$ctrl.addTuto()">Ajouter 3 tutos</button>
    <div id="header-title">
       Tutorialize
    </div>
 
    <div id="header-control">
-      <div id="add-tutorial-container">
-      </div>
+      <a ng-href="auth/github">
+         <img class="newtuto-image" ng-src="../../data/img/newtuto-logo.png"/>
+      </a>
+
+      <!-- -->
+
       <a ng-href="auth/github" ng-if="!$ctrl.auth">
          <img class="login-image" ng-src="../../data/img/github-logo.png"/>
       </a>
-      <a ng-href="bye/bye" ng-if="$ctrl.auth">
-         <img class="login-image" ng-src="{{$ctrl.user.avatar_url}}"/>
+      <a ng-href="/logout" ng-if="$ctrl.auth">
+         <img class="login-image" ng-src="{{$ctrl.user.avatarUrl}}"/>
       </a>
    </div>
 </div>

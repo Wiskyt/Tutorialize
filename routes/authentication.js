@@ -7,7 +7,7 @@ var GitHubStrategy = require('passport-github2').Strategy;
 var GITHUB_CLIENT_ID = "Iv1.8935fa443f459d71";
 var GITHUB_CLIENT_SECRET = "ca94c84f700899e0e7c42b6a25aad607ac67a74c";
 
-Authentication.init = function (app) {
+Authentication.init = function (app, User) {
    passport.serializeUser(function (user, done) {
       done(null, user);
    });
@@ -24,12 +24,7 @@ Authentication.init = function (app) {
       function (accessToken, refreshToken, profile, done) {
          // asynchronous verification, for effect...
          process.nextTick(function () {
-
-            // To keep the example simple, the user's GitHub profile is returned to
-            // represent the logged-in user.  In a typical application, you would want
-            // to associate the GitHub account with a user record in your database,
-            // and return that user instead.
-            return done(null, profile);
+            User.onConnection(profile, accessToken, refreshToken, done);
          });
       }
    ));
@@ -77,9 +72,9 @@ Authentication.init = function (app) {
    });
 
    app.get('/auth/info', function(req, res) {
-      console.log("GET request at /auth/info")  
+      console.log("GET request at /auth/info")
       if (req.isAuthenticated()) {
-         res.send(req.user._json);
+         res.send(req.user);
       } else {
          res.send({msg: 'Unauthenticated'});
       }

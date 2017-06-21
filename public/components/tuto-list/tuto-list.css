@@ -1,18 +1,17 @@
 /* Parent of tutorials */
 .tutorials-container {
-   background-color: /*lightyellow*/;
    padding: 0px 35px 0px 0px;
 }
 
 /* Single tutorial container */
 .tutorial-container {
-   height: 80px;
-
-   display: inline-flex;
-   flex-flow: row;
+   height: 90px;
+   transition: height ease-out 400ms;
+   
+   overflow: hidden;
 
    margin: 10px 0px 15px 0px;
-   padding: 10px 15px 10px 15px;
+   padding: 0;
 
    background-color: lightgray;
 
@@ -20,23 +19,12 @@
    border-radius: 5px;
 }
 
-.tutorial-box {
-   display: inline-flex;
-   height: 100%;
+.tutorial-container-focus {
+   height: 250px;
+}
 
-   flex-grow: 1;
-   flex-basis: 0;
-
-   /* Center stuff */
-   align-items: center;
-   justify-content: center;
-
-   border-right: 2px solid gray;
-
-   color: black;
-   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-   font-size: 16px;
-   text-align: center;
+.tutorial-container-focus.ng-animate {
+   animation: none 0s;
 }
 
 .no-border {
@@ -44,5 +32,5 @@
 }
 
 .tuto-list-img {
-   width: 48px;
+   height: 32px;
 }

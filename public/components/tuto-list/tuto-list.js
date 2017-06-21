@@ -4,29 +4,21 @@ angular.module('tutorialize')
 
    .component('tutolist', {
       templateUrl: './components/tuto-list/tuto-list.html',
-      controller: TutoList
+      controller: TutoList,
+      bindings: {
+         tutos: '<'
+      }
    })
 
-function TutoList($resource) {
-   // Controller
-   var _this = this;
-
-   var availableTechnosIcons = ["passportjs", "angularjs", "nodejs"]; // Array that lists all icons repertoried
-
-   var request = $resource("/data");
-   request.get().$promise.then(function (data) {
-      let tutorials = data.data;
-
-      tutorials.map((e) => {
-         let obj = {
-            name: e.techno,
-            hasImg: availableTechnosIcons.indexOf(e.techno) > 0
-         }
-         console.log(obj);
-         e.techno = obj;
-      });
-
-
-      _this.tutorials = tutorials;
-   })
+function TutoList($resource, $scope) {
+   
+   $scope.focusedTuto = -1;
+   
+   this.onTutorialClick = function (index) {
+      if (index == $scope.focusedTuto) {
+         $scope.focusedTuto = -1;
+      } else {
+         $scope.focusedTuto = index;
+      }
+   }
 }
