@@ -7,6 +7,8 @@
 .tutorial-container {
    height: 90px;
    transition: height ease-out 400ms;
+   
+   overflow: hidden;
 
    margin: 10px 0px 15px 0px;
    padding: 0;
@@ -19,6 +21,10 @@
 
 .tutorial-container-focus {
    height: 250px;
+}
+
+.tutorial-container-focus.ng-animate {
+   animation: none 0s;
 }
 
 .no-border {

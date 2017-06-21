@@ -39,7 +39,7 @@ function Header($resource, $http) {
                 ],
                 language: 'JS',
                 lang: 'French',
-                techno: 'jQuery',
+                techno: ['AngularJS', 'NodeJS'],
                 media: 'Website',
                 author: 'Rocky',
                 price: '0',
@@ -61,11 +61,33 @@ function Header($resource, $http) {
                 ],
                 language: 'HTML',
                 lang: 'English',
-                techno: 'React',
+                techno: ['PassportJS'],
                 media: 'Video',
                 author: 'Balboa',
                 price: '10',
-                link: 'http://www.google.fr'
+                link: 'http://www.youtube.fr'
+            },
+            {
+                title: 'Tuto3',
+                description: 'C\'est le tuto 3',
+                rating: [
+                    {
+                        grade: '1',
+                    },
+                    {
+                        grade: '5',
+                    },
+                    {
+                        grade: '2',
+                    }
+                ],
+                language: 'JS',
+                lang: 'French',
+                techno: ['MEAN'],
+                media: 'Github',
+                author: 'Bobby',
+                price: '0',
+                link: 'http://www.twitter.fr'
             }]
 
         // On fait l'insertion

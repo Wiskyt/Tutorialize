@@ -20,17 +20,17 @@ function requestTutorials(self, $resource) {
 
    var availableTechnosIcons = ["passportjs", "angularjs", "nodejs", "mean"]; // Array that lists all icons repertoried
 
-   var request = $resource("/tuto");
+   let request = $resource('/tuto');
    request.get().$promise.then((data) => {
+      console.log(data);
       let tutorials = data.tuto;
 
       tutorials.map((e) => {
-         let t = e.techno.split(", "),
-            technos = [];
-         for (let i = 0; i < t.length; i++) {
+         let technos = [];
+         for (let i = 0; i < e.techno.length; i++) {
             let obj = {
-               name: t[i],
-               hasImg: availableTechnosIcons.indexOf(t[i].toLowerCase()) > -1
+               name: e.techno[i],
+               hasImg: availableTechnosIcons.indexOf(e.techno[i].toLowerCase()) > -1
             }
             technos.push(obj);
             //  technos.push(obj); // TODO: Flexbox layout for 2+ icons
@@ -39,8 +39,8 @@ function requestTutorials(self, $resource) {
          e.techno = technos;
 
 
-         let dt = new Date(e.dateCreate);
-         e.dateCreate = dt.toLocaleDateString();
+         let dt = new Date(e.datePost);
+         e.datePost = dt.toLocaleDateString();
       });
 
       self.tutos = tutorials;

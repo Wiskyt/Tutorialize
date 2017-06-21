@@ -5,21 +5,21 @@
 
    <div class="tutorial-box tutorial-techno">
       <div ng-repeat="techno in $ctrl.tutorial.techno track by $index" class="no-pad-marg">
-         <img class="tuto-list-img" ng-if="techno.hasImg" ng-src="../../data/img/technos/{{techno.name}}.png"></img>
+         <img class="tuto-list-img" ng-if="techno.hasImg" ng-src="/data/img/technos/{{techno.name}}.png"></img>
          <span ng-if="!techno.hasImg">{{techno.name}}</span>
       </div>
    </div>
 
    <div class="tutorial-box">
-      <img class="tuto-list-img" ng-src="../../data/img/flags/{{$ctrl.tutorial.lang}}.png"></img>
+      <img class="tuto-list-img" ng-src="/data/img/flags/{{$ctrl.tutorial.lang}}.png"></img>
    </div>
 
    <div class="tutorial-box">
-      <img class="tuto-list-img" ng-src="../../data/img/media/{{$ctrl.tutorial.media}}.png"></img>
+      <img class="tuto-list-img" ng-src="/data/img/media/{{$ctrl.tutorial.media}}.png"></img>
    </div>
 
    <div class="tutorial-box">
-      <img class="tuto-list-img" ng-if="$ctrl.tutorial.price == 0" ng-src="../../data/img/free.png"></img>
+      <img class="tuto-list-img" ng-if="$ctrl.tutorial.price == 0" ng-src="/data/img/free.png"></img>
       <span ng-if="$ctrl.tutorial.price != 0">{{$ctrl.tutorial.price}}</span>
    </div>
 
@@ -28,16 +28,16 @@
    </div>
 
    <div class="tutorial-box no-border">
-      <img class="tutorial-rating-image" ng-src="../../data/img/rating/{{$ctrl.tutorial.rating}}.png" />
+      <img class="tutorial-rating-image" ng-src="/data/img/rating/{{$ctrl.tutorial.rating}}.png" />
    </div>
 </div>
 
 
 <!-- ON CLICK -> MORE INFO -->
 
-<div class="tutorial-more" ng-show="$ctrl.index==$parent.focusedTuto">
+<div class="tutorial-more" ng-if="$ctrl.index==$parent.focusedTuto">
    <a href="{{$ctrl.tutorial.link}}" target="_blank">
-      <img class="tutorial-webshot" ng-src="../../data/img/webshots/userauthenticationwiththemeanstack.png" alt="Site Preview"/>
+      <img class="tutorial-webshot" ng-src="/data/img/webshots/userauthenticationwiththemeanstack.png" alt="Site Preview"/>
    </a>
 
    <div class="tutorial-more-body">
@@ -51,7 +51,7 @@
    </div>
 
    <div class="tutorial-flag">
-      <img ng-src="../../data/img/flag-icon.png" alt="Flag" class="tuto-list-img" ng-click="$ctrl.signal($ctrl.index)" data-toggle="tooltip"
+      <img ng-src="/data/img/flag-icon.png" alt="Flag" class="tuto-list-img" ng-click="$ctrl.signal($ctrl.index)" data-toggle="tooltip"
          title="Signal tutorial" data-placement="left" tooltip/>
    </div>
 </div>

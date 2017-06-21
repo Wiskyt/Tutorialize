@@ -21,10 +21,10 @@ Tuto.init = function (app, routed) {
             type: String,
             required: true
         },
-        techno: {
+        techno: [{
             type: String,
             required: true
-        },
+        }],
         media: {
             type: String,
             required: true
@@ -37,6 +37,10 @@ Tuto.init = function (app, routed) {
             required: true
         },
         dateCreate: {
+            type: Date,
+            required: false
+        },
+        datePost: {
             type: Date,
             default: Date.now(),
             required: true

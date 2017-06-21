@@ -72,20 +72,3 @@
    flex: 1;
    align-self: flex-end;
 }
-
-.fade.ng-show {
-  opacity: 0;
-}
-
-.fade.ng-show-remove,
-.fade.ng-show-add {
-  display: block !important; /* or inline-block, as appropriate */
-}
-
-.fade.ng-show-remove {
-  transition: all linear 1000ms;
-}
-
-.fade.ng-show-add {
-  transition: all linear 500ms;
-}
