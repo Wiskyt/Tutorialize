@@ -20,7 +20,7 @@
             </div>
 
         </div>
-        {{$ctrl.count}}
+
         <div class="panel panel-default">
 
             <div class="panel-heading">
@@ -42,13 +42,15 @@
                                 <span class=" glyphicon glyphicon-chevron-down pull-right" ></span>
                                 
                                  </a>
+                                 {{$ctrl.count}}
+                                 {{$ctrl.filtersCount.static}}
 
                                 <div id="collapseLan" class="collapse ">
-                                    <div ng-repeat="lang in $ctrl.filters.static.lang" class="checkbox">
+                                    <div ng-repeat="lang in $ctrl.filters.static.lang track by $index" class="checkbox">
 
                                         <li class="list-group-item ">
-                                            <label><input type="checkbox" name="checkbox" value="value">{{lang}}</label>
-                                            <span class="badge">42</span>
+                                            <label><input type="checkbox"  name="checkbox" value="value">{{lang}}</label>
+                                            <span class="badge"> 33 </span>
                                         </li>
 
                                     </div>
@@ -113,7 +115,68 @@
                                 </div>
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                                <a data-toggle="collapse" data-parent="#collapseTwo" href="#collapseDate">
+                                            <span class="glyphicon glyphicon-comment text-success"> </span>Autres filtres
+                                             <span class=" glyphicon glyphicon-chevron-down pull-right" ></span>
+                                            </a>
+                                <div id="collapseDate" class="collapse in">
+                                    <br>
+                                    <label for="">Prix maximum :</label> {{prix}} euros
+                                    <br>
+                                    <li class="list-group-item ">
+                                         <span>0</span> <span class="pull-right">100</span>
+                                        <input id="ex2" type="range" list="tickmarksPrix" id="price-min" ng-model="prix" min="0" max="100" step="2" />
+                                    </li>
+                                    <datalist id="tickmarksPrix">
 
+                                        <option value="0" label="0%">
+
+                                            <option value="10">
+
+                                                <option value="20">
+                                                    <option value="30">
+                                                        <option value="40">
+                                                            <option value="50" label="50%">
+                                                                <option value="60">
+                                                                    <!--<option value="70">-->
+                                                                        <option value="80">
+                                                                            <!--<option value="90">-->
+                                                                                <option value="100" label="100%">
+                                    </datalist>
+                                    <br>
+                                    <label for="">Âge :</label> moins de {{age}} ans
+                                    <br>
+                                    <li class="list-group-item ">
+                                        <span>0</span> <span class="pull-right">10</span>
+                                        <input id="ex2"   type="range" list="tickmarksAge" ng-model="age" min="0" max="10" step="0.5" />
+
+
+                                    </li>
+                                    <datalist id="tickmarksAge">
+
+                                        <option value="0" label="0%">
+
+                                            <option value="0">
+
+                                                <option value="1">
+                                                    <option value="2">
+                                                        <option value="3">
+                                                            <option value="4" label="50%">
+                                                                <option value="5">
+                                                                    <option value="6">
+                                                                        <option value="7">
+                                                                            <option value="8">
+                                                                                <option value="9">
+                                                                                    <option value="10" label="100%">
+                                    </datalist>
+
+
+
+                                </div>
+                            </td>
+                        </tr>
 
 
 
