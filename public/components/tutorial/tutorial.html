@@ -38,12 +38,14 @@
 <div class="tutorial-more container-fluid no-pad-marg" ng-if="$ctrl.index==$ctrl.focusedTuto">
    <div class="row no-pad-marg full-size">
 
-      <a class="col-sm-4" href="{{$ctrl.tutorial.link}}" target="_blank">
+      <div class="col-sm-4">
+         <a href="{{$ctrl.tutorial.link}}" target="_blank">
          <img class="tutorial-webshot" ng-src="/data/img/webshots/{{$ctrl.tutorial.webshot}}" alt="Site Preview"/>
       </a>
+      </div>
 
       <div class="tutorial-more-body col-sm-7">
-         <p>{{$ctrl.tutorial.description}}</p>  
+         <p>{{$ctrl.tutorial.description}}</p>
 
 
          <div class="tutorial-footer">
@@ -56,6 +58,6 @@
          <img ng-src="/data/img/flag-icon.png" alt="Flag" class="tutorial-flag-img" ng-click="$ctrl.signal($ctrl.index)" data-toggle="tooltip"
             title="Signal tutorial" data-placement="top" tooltip/>
       </div>
-      
+
    </div>
 </div>
