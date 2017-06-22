@@ -1,37 +1,14 @@
-
+/* HEADER */
 .tutorial-info-wrapper {
    width: 100%;
-   height: 90px;
+   height: 70px;
    display: inline-flex;
    flex-flow: row;   
 
    padding: 8px 15px 8px 15px;
 }
 
-.tutorial-more {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-
-   border-top: 2px solid gray;
-
-   width: 100%;
-   height: 140px;
-}
-
-.tutorial-link {
-   flex: 12;
-   align-self: center;
-   text-align: center;
-   font-size: 32px;
-}
-
-.tutorial-flag {
-   flex: 1;
-   align-self: flex-end;
-   transition: filter 300ms;
-}
-
+/* Element of a box */
 .tutorial-box {
    display: inline-flex;
    height: 100%;
@@ -46,15 +23,18 @@
    border-right: 2px solid gray;
 
    color: black;
-   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+   font-family: roboto;
    font-size: 16px;
    text-align: center;
 }
 
+/* Individual boxes */
+
 .tutorial-description {
-   overflow: scroll;
+   overflow: hidden;
    font-size: 14px;
-   padding: 0px 5px 0px 5px;
+   padding: 5px 5px 5px 5px;
+   cursor: pointer;
 }
 
 .tutorial-techno {
@@ -64,4 +44,69 @@
 .tutorial-rating-image {
    width: 100%;
    margin-left: 10%;
+}
+
+/* Tutorial : More */
+
+.tutorial-more {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   border-top: 2px solid gray;
+
+   width: 100%;
+   height: 160px;
+}
+
+/* Webshot on the left */
+.tutorial-webshot {
+   margin-top: 10px;
+   height: 140px;
+}
+
+/* Body in the middle */
+.tutorial-more-body {
+   display: block;
+   height: 160px;
+   padding: 15px 10px 15px 10px;
+   font-size: 16px;
+}
+
+/* Footer of the body */
+.tutorial-footer {
+   width: 100%;
+   position: absolute;
+   bottom: 35px;
+}
+
+/* Link on left side */
+.tutorial-link {
+   position: absolute;
+   left: 0;
+
+   font-size: 16px;
+}
+
+/* Author on right side */
+.tutorial-author {
+   position: absolute;
+   right: 0;
+
+   font-weight: bold;
+   font-size: 12px;
+}
+
+/* Flag on the right side of tutorial more*/
+.tutorial-flag {
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+}
+
+.tutorial-flag-img {
+   margin-top: auto;
+   margin-bottom: 10px;
+   width: 28px;
+   height: 28px;
 }

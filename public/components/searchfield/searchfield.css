@@ -3,6 +3,7 @@
     max-width: 280px;
     margin: auto;
     position: sticky;
+    font-family: roboto;
 }
 
 .glyphicon {

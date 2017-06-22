@@ -1,28 +1,30 @@
 /* Parent of tutorials */
 .tutorials-container {
-   padding: 0px 35px 0px 0px;
+   padding: 0px 40px 0px 10px;
 }
 
 /* Single tutorial container */
 .tutorial-container {
-   height: 90px;
+   height: 70px;
    transition: height ease-out 400ms;
+   
+   overflow: hidden;
 
    margin: 10px 0px 15px 0px;
    padding: 0;
 
    background-color: lightgray;
 
-   box-shadow: 5px 5px 4px #888888;
-   border-radius: 5px;
+   box-shadow: 0px 0px 6px #888888;
+   /*border-radius: 5px;*/
 }
 
 .tutorial-container-focus {
-   height: 250px;
+   height: 230px;
 }
 
-.no-border {
-   border: 0;
+.tutorial-container-focus.ng-animate {
+   animation: none 0s;
 }
 
 .tuto-list-img {

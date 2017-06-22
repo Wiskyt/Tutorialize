@@ -20,48 +20,51 @@ function TutorialController($resource) {
 
 function requestTutorials(self, $resource) {
 
-    var availableTechnosIcons = ["passportjs", "angularjs", "nodejs", "mean"]; // Array that lists all icons repertoried
+   var availableTechnosIcons = ["passportjs", "angularjs", "nodejs", "mean"]; // Array that lists all icons repertoried
 
-    var request = $resource("/tuto");
-    request.get().$promise.then((data) => {
-        let tutorials = data.tuto;
+   let request = $resource('/tuto');
+   request.get().$promise.then((data) => { // REQUETE DES TUTORIELS
+      console.log(data);
+      let tutorials = data.tuto;
 
-        tutorials.map((e) => {
-            let t = e.techno.split(", "),
-                technos = [];
-            for (let i = 0; i < t.length; i++) {
-                let obj = {
-                    name: t[i],
-                    hasImg: availableTechnosIcons.indexOf(t[i].toLowerCase()) > -1
-                }
-                technos.push(obj);
-                //  technos.push(obj); // TODO: Flexbox layout for 2+ icons
+      tutorials.map((e) => { // On parcours les tutos pour savoir si il est possible de remplacer le txt techno par une image
+
+         let technos = [];
+         for (let i = 0; i < e.techno.length; i++) {
+            let obj = {
+               name: e.techno[i],
+               hasImg: availableTechnosIcons.indexOf(e.techno[i].toLowerCase()) > -1
             }
+            technos.push(obj);
+         }
+         e.techno = technos;
 
-            e.techno = technos;
+         // On convertis la date en format lisible
+      
+         e.datePost = new Date(e.datePost).toLocaleDateString();
+         e.dateCreate = new Date(e.dateCreate).toLocaleDateString();
 
-
-            let dt = new Date(e.dateCreate);
-            e.dateCreate = dt.toLocaleDateString();
-        });
+         return e;
+      });
 
         self.tutos = tutorials;
 
-    }).then(() => {
-        if (!self.filters.static) {
-            var resFilters = $resource("/filters");
+   }).then(() => { // REQUETE DES FILTRES
+      if (!self.filters.static) { // si on les a pas encore
+         var resFilters = $resource("/filters");
 
-            resFilters.get().$promise.then((filters) => {
-                self.filters.static = filters;
-                self.filtersCount = calculateFiltersCount(self.filters.static, self.tutos);
-            })
-        } else {
-            self.filtersCount = calculateFiltersCount(self.filters, self.tutos);
-        }
-    })
+         resFilters.get().$promise.then((filters) => { // On calcule les count de tutos
+            self.filters.static = filters;
+            self.filtersCount = calculateFiltersCount(self.filters.static, self.tutos);
+         })
+      } else { // sinon calcule juste
+         self.filtersCount = calculateFiltersCount(self.filters, self.tutos);
+      }
+   })
 }
 
-function calculateFiltersCount(filters, tutos) {
+// fonction obscure qui compte les filtres
+function calculateFiltersCount(filters, tutos) { 
 
     console.log("calculateFiltersCount(filters, tutos) \n",
         "filters:", filters, "\ntutos:", tutos);
@@ -109,6 +112,7 @@ function calculateFiltersCount(filters, tutos) {
     console.log(count);
 }
 
+// Initie un array de taille size avec value comme valeur
 function initArray(size, value) {
     let arr = [];
     for (let i = 0; i < size; i++) {

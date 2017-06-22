@@ -1,0 +1,49 @@
+<div id="admin-container" class="container">
+   <div class="row">
+      <div class="col-md-12 home-welcome">
+         <h3>Panel d'administration</h3>
+      </div>
+   </div>
+
+   <div class="row">
+      <br>
+      <br>
+
+      <div class="col-sm-10 col-sm-offset-1">
+     
+         <table st-table="$ctrl.tutos" class="table table-striped">
+            <thead>
+               <tr>
+                  <th>Language</th>
+                  <th>Title</th>
+                  <th>Language (prog)</th>
+                  <th>Technos</th>
+                  <th>Prix</th>
+                  <th>Description</th>
+                  <th>Date du tutoriel</th>
+                  <th>Date de l'ajout</th>
+                  <th>Lien</th>
+                  <th>Signalements</th>
+                  <th>Validé</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr ng-repeat="tuto in $ctrl.tutos">
+                  <td>{{tuto.lang}}</td>
+                  <td>{{tuto.title}}</td>
+                  <td>{{tuto.language}}</td>
+                  <td>{{tuto.technos.join(", ")}}</td>
+                  <td>{{tuto.price}}</td>
+                  <td>{{tuto.description}}</td>
+                  <td>{{tuto.dateCreate}}</td>
+                  <td>{{tuto.datePost}}</td>
+                  <td>{{tuto.link}}</td>
+                  <td>{{tuto.flags}}</td>
+                  <td>{{tuto.isValid}}</td>
+               </tr>
+            </tbody>
+         </table>
+
+      </div>
+   </div>
+</div>
