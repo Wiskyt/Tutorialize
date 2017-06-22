@@ -41,6 +41,11 @@ Tuto.init = function (app, routed) {
          required: true,
          _id: false
       }],
+      language: [{
+         type: String,
+         required: true,
+         _id: false
+      }],
       media: {
          type: String,
          required: true

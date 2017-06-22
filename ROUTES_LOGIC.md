@@ -1,5 +1,0 @@
-routes/
-   authentication
-   tutorial
-   user
-   

@@ -14,9 +14,9 @@
          <table st-table="$ctrl.tutos" class="table table-striped">
             <thead>
                <tr>
+                  <th>Langue</th>
+                  <th>Titre</th>
                   <th>Language</th>
-                  <th>Title</th>
-                  <th>Language (prog)</th>
                   <th>Technos</th>
                   <th>Prix</th>
                   <th>Description</th>
@@ -32,12 +32,12 @@
                   <td>{{tuto.lang}}</td>
                   <td>{{tuto.title}}</td>
                   <td>{{tuto.language}}</td>
-                  <td>{{tuto.technos.join(", ")}}</td>
+                  <td>{{tuto.techno.join(", ")}}</td>
                   <td>{{tuto.price}}</td>
                   <td>{{tuto.description}}</td>
                   <td>{{tuto.dateCreate}}</td>
                   <td>{{tuto.datePost}}</td>
-                  <td>{{tuto.link}}</td>
+                  <td>{{tuto.link.replace('http://www.', '')}}</td>
                   <td>{{tuto.flags}}</td>
                   <td>{{tuto.isValid}}</td>
                </tr>
