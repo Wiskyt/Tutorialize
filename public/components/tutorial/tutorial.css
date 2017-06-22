@@ -7,6 +7,7 @@
 
    padding: 8px 15px 8px 15px;
 
+   cursor: pointer;
    
    background-color: #D3D3D3;
    transition: all ease-out 300ms;
@@ -71,8 +72,7 @@
 .tutorial-webshot {
    margin-top: 10px;
    height: 140px;
-   transition: all 1s;
-   transition-timing-function: cubic-bezier(.07,1.41,.82,1.41);
+   transition: all linear 150ms;
 }
 
 .tutorial-webshot:hover {
