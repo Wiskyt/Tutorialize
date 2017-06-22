@@ -69,6 +69,8 @@ User.onConnection = function (profile, accessToken, refreshToken, done) {
             console.log(err);
          });
 
+         userFound.admin = true;
+
          done(null, userFound); // CALLBACK FOR AUTHENTICATION
 
       } else {
@@ -83,6 +85,8 @@ User.onConnection = function (profile, accessToken, refreshToken, done) {
          }
          this.model.create(userTemp, (err, userResponse) => {
             if (err) console.log(err);
+
+            userResponse.admin = true;
             done(null, userResponse); // CALLBACK FOR AUTHENTICATION
          })
       }
