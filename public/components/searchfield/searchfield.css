@@ -34,3 +34,7 @@
     color: #FF0000;
     text-decoration: underline;
 }
+
+#ex2 {
+    display: inline;
+}
