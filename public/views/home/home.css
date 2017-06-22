@@ -1,8 +1,6 @@
 #home-container {
     width: 100%;
     height: 100%;
-    margin: 0;
-    padding: 0;
 }
 
 #menu-root {
@@ -13,4 +11,8 @@
 
 .home-welcome {
     text-align: center;
+    background: #FF3D3C;
+    color: white;
+    padding: 20px;
+    font-size: 18px;
 }
