@@ -54,9 +54,7 @@ User.init = function (app) {
 }
 
 User.onConnection = function (profile, accessToken, refreshToken, done) {
-   this.model.find({githubId: profile.id}, (err, userFound) => {
-      userFound = userFound[0]; // Index 0 because id is unique anyway 
-
+   this.model.findOne({githubId: profile.id}, (err, userFound) => {
       if (userFound) {
          // Update user and save it 
 
@@ -70,6 +68,8 @@ User.onConnection = function (profile, accessToken, refreshToken, done) {
          userFound.save((err) => {
             console.log(err);
          });
+
+         userFound.admin = true;
 
          done(null, userFound); // CALLBACK FOR AUTHENTICATION
 
@@ -85,6 +85,8 @@ User.onConnection = function (profile, accessToken, refreshToken, done) {
          }
          this.model.create(userTemp, (err, userResponse) => {
             if (err) console.log(err);
+
+            userResponse.admin = true;
             done(null, userResponse); // CALLBACK FOR AUTHENTICATION
          })
       }

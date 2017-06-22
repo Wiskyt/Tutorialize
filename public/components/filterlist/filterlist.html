@@ -1,0 +1,21 @@
+<div class="filterlist-container">
+
+   <a data-toggle="collapse" data-target="#collapse-{{$ctrl.name}}" data-parent="#collapse-filters">
+      <span class="glyphicon glyphicon-comment text-success"> </span> 
+      <span>{{$ctrl.displayName}}</span>
+      <span class="glyphicon glyphicon-chevron-down pull-right" ></span>        
+   </a>
+
+
+   <div id="collapse-{{$ctrl.name}}" class="collapse">
+      <div ng-repeat="element in $ctrl.filter track by $index" class="checkbox">
+
+         <li class="list-group-item ">
+            <label><input type="checkbox" name="checkbox" value="value">{{element}}</label>
+            <span class="badge"> {{$ctrl.filterCount[$index]}} </span>
+         </li>
+
+      </div>
+   </div>
+
+</div>

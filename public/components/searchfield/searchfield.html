@@ -1,101 +1,119 @@
 <div id="searchfield-container">
 
-    <div class="panel-group" id="accordion">
+   <div class="panel-group" id="searchfield">
 
-        <div class="panel panel-default">
 
-            <div class="panel-heading">
+      <!-- Barre de recherche -->
+      <div class="panel panel-default">
 
-                <!--Formulaire de recherche -->
-                <form class="" method="get" role="form" id="form_search">
-                    <label for="form_search"> Trouvez un tuto :</label>
-                    <div class="input-group">
-                        <input type="search" class="form-control" id="txtSearch" aria-label="..." />
-                        <div class="input-group-btn">
-                            <button value="Search" alt="Search Button" type="submit" tabindex="4" form="form_search" id="btnSearch" class="btn btn-danger">Recherche</button>
+         <div class="panel-heading">
+            <label for="form_search"> Trouvez un tuto </label>
+
+            <div class="input-group">
+               <input type="search" class="form-control" id="txtSearch" aria-label="..." />
+               <div class="input-group-btn">
+                  <button value="Search" alt="Search Button" type="submit" tabindex="4" form="form_search" id="btnSearch" class="btn btn-danger">Recherche</button>
+               </div>
+            </div>
+
+         </div>
+
+      </div>
+
+      <!-- Filtres -->
+      <div class="panel panel-default">
+
+         <div class="panel-heading">
+
+            <h4 class="panel-title">
+               <a data-toggle="collapse" data-parent="#searchfield" data-target="#collapse-filters">
+                  <span class="glyphicon glyphicon-list"></span>  
+                  Affiner par   
+               </a>
+            </h4>
+
+         </div>
+
+         <div id="collapse-filters" class="panel-collapse collapse in">
+
+            <div class="panel-body">
+
+               <table class="table">
+                  <tr>
+                     <td>
+                        <filterlist name="'lang'" display-name="'Langue'" filter="$ctrl.filters.static.lang" filter-count="$ctrl.filtersCount.lang">
+                        </filterlist>
+                     </td>
+                  </tr>
+
+                  <tr>
+                     <td>
+                        <filterlist name="'language'" display-name="'Language'" filter="$ctrl.filters.static.language" filter-count="$ctrl.filtersCount.language">
+                        </filterlist>
+                     </td>
+                  </tr>
+
+                  <tr>
+                     <td>
+                        <filterlist name="'media'" display-name="'Media'" filter="$ctrl.filters.static.media" filter-count="$ctrl.filtersCount.media">
+                        </filterlist>
+                     </td>
+                  </tr>
+
+                  <tr>
+                     <td>
+                        <filterlist name="'techno'" display-name="'Technologies'" filter="$ctrl.filters.static.techno" filter-count="$ctrl.filtersCount.techno">
+                        </filterlist>
+                     </td>
+                  </tr>
+
+
+                  <tr>
+                     <td>
+                        <!-- Head -->
+                        <a data-toggle="collapse" data-parent="#collapse-filters" data-target="#collapse-others">
+                           <span class="glyphicon glyphicon-comment text-success"> </span>Autres filtres
+                           <span class=" glyphicon glyphicon-chevron-down pull-right" ></span>
+                        </a>
+
+                        <div id="collapse-others" class="collapse in">
+
+                           <!-- Prix du tuto -->
+                           <br>
+                           <label for="">Prix maximum :</label> {{prix}} euros
+                           <br>
+
+                           <li class="list-group-item ">
+                              <span>0</span> <span class="pull-right">100</span>
+                              <input id="ex2" type="range" list="tickmarksPrix" id="price-min" ng-model="prix" min="0" max="100" step="2" />
+                           </li>
+
+                           <datalist id="tickmarksPrix">  
+                              <option ng-repeat="v in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] track by $index" value="{{$index * 10}}" />
+                           </datalist>
+
+                           
+                           <!-- Age du tuto-->
+                           <br>
+                           <label for="">Âge :</label> moins de {{age}} ans
+                           <br>
+
+                           <li class="list-group-item ">
+                              <span>0</span> <span class="pull-right">10</span>
+                              <input id="ex2" type="range" list="tickmarksAge" ng-model="age" min="0" max="10" step="0.5" />
+
+
+                           </li>
+
+                           <datalist id="tickmarksPrix">  
+                              <option ng-repeat="v in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] track by $index" value="{{$index * 10}}" />
+                           </datalist>
                         </div>
-
-                    </div>
-                </form>
+                     </td>
+                  </tr>
+               </table>
             </div>
-
-        </div>
-
-        <div class="panel panel-default">
-
-            <div class="panel-heading">
-
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-list"></span>   Affiner par:</a>
-                </h4>
-            </div>
-
-            <div id="collapseTwo" class="panel-collapse collapse in">
-
-                <div class="panel-body">
-
-                    <table class="table">
-                        <tr>
-                            <td>
-
-                                <a data-toggle="collapse" data-parent="#collapseTwo" href="#collapseLan"><span class="glyphicon glyphicon-comment text-success"> </span> Langue
-                                <span class=" glyphicon glyphicon-chevron-down" ></span>
-                                
-                                 </a>
-
-                                <div id="collapseLan" class="collapse ">
-                                    <div ng-repeat="lang in $ctrl.filters.lang" class="checkbox">
-
-                                        <li  class="list-group-item ">
-                                            <label><input type="checkbox" name="checkbox" value="value">{{lang }}</label>
-                                            <span class="badge">42</span>
-                                        </li>
-
-                                    </div>
-
-                                </div>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a data-toggle="collapse" data-parent="#collapseTwo" href="#collapseLang">
-                                            <span class="glyphicon glyphicon-comment text-success"> </span> Langages 
-                                             <span class=" glyphicon glyphicon-chevron-down" ></span>
-                                            </a>
-
-                                <div id="collapseLang" class="collapse ">
-                                    <div ng-repeat="language in $ctrl.filters.languages" class="checkbox">
-                                        <li class="list-group-item">
-
-                                            <label><input  type="checkbox" name="checkbox" value="value">{{language}}</label>
-                                            <span class="badge">0</span>
-                                        </li>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <a data-toggle="collapse" data-parent="#collapseTwo" href="#collapseType">
-                                            <span class="glyphicon glyphicon-comment text-success"> </span> Type 
-                                             <span class=" glyphicon glyphicon-chevron-down" ></span>
-                                            </a>
-                                <div id="collapseType" class="collapse">
-                                    <div ng-repeat="type in $ctrl.filters.type" class="checkbox">
-                                        <li class="list-group-item " >
-                                            <label><input type="checkbox" name="checkbox" value="value">{{type }}</label>
-                                            <span class="badge">0</span>
-
-                                        </li>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
+         </div>
+      </div>
+   </div>
 </div>

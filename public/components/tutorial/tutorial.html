@@ -24,34 +24,40 @@
    </div>
 
    <div class="tutorial-box">
-      {{$ctrl.tutorial.dateCreate}}
+      {{$ctrl.tutorial.datePost}}
    </div>
 
    <div class="tutorial-box no-border">
-      <img class="tutorial-rating-image" ng-src="/data/img/rating/{{$ctrl.tutorial.rating}}.png" />
+      <img class="tutorial-rating-image" ng-src="/data/img/rating/{{$ctrl.tutorial.averageRating}}.png" />
    </div>
 </div>
 
 
 <!-- ON CLICK -> MORE INFO -->
 
-<div class="tutorial-more" ng-if="$ctrl.index==$parent.focusedTuto">
-   <a href="{{$ctrl.tutorial.link}}" target="_blank">
-      <img class="tutorial-webshot" ng-src="/data/img/webshots/userauthenticationwiththemeanstack.png" alt="Site Preview"/>
-   </a>
+<div class="tutorial-more container-fluid no-pad-marg" ng-if="$ctrl.index==$ctrl.focusedTuto">
+   <div class="row no-pad-marg full-size">
 
-   <div class="tutorial-more-body">
-      <p>{{$ctrl.tutorial.description}}</p>
-
-      <a href="{{$ctrl.tutorial.link}}" target="_blank" class="tutorial-link">Go and learn</a>
-
-      <div class="tutorial-footer">
-         Posé par {{$ctrl.tutorial.author || 'Inconnu'}} le {{$ctrl.tutorial.datePost || 'un jour'}}
+      <div class="col-sm-4">
+         <a href="{{$ctrl.tutorial.link}}" target="_blank">
+         <img class="tutorial-webshot" ng-src="/data/img/webshots/{{$ctrl.tutorial.webshot}}" alt="Site Preview"/>
+      </a>
       </div>
-   </div>
 
-   <div class="tutorial-flag">
-      <img ng-src="/data/img/flag-icon.png" alt="Flag" class="tuto-list-img" ng-click="$ctrl.signal($ctrl.index)" data-toggle="tooltip"
-         title="Signal tutorial" data-placement="left" tooltip/>
+      <div class="tutorial-more-body col-sm-7">
+         <p>{{$ctrl.tutorial.description}}</p>
+
+
+         <div class="tutorial-footer">
+            <a href="{{$ctrl.tutorial.link}}" target="_blank" class="tutorial-link">Go and learn</a>
+            <span class="tutorial-author">Posté par {{$ctrl.tutorial.author || 'Inconnu'}} le {{$ctrl.tutorial.datePost || 'un jour'}}</span>
+         </div>
+      </div>
+
+      <div class="tutorial-flag col-sm-1">
+         <img ng-src="/data/img/flag-icon.png" alt="Flag" class="tutorial-flag-img" ng-click="$ctrl.signal($ctrl.index)" data-toggle="tooltip"
+            title="Signal tutorial" data-placement="top" tooltip/>
+      </div>
+
    </div>
 </div>

@@ -2,8 +2,10 @@ Tutoriels :
    - id (ObjectId)
    - title (String 50)
    - description (String 250)
-   - rating [
+   - ratings [
       Number (Float 0.0 to 5.0)
+      Author (ObjectId)
+      Date (automatic)
    ]
    - lang (String 2 | Locale : fr, en)
    - techno [

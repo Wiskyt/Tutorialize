@@ -14,8 +14,9 @@ const run = [
 angular.module('tutorialize', [
    'ui.router',
    'ngResource',
-   'ngAnimate'
-   // HERE LIST YOUR MODULES
+   'ngAnimate',
+   'smart-table'
+   // Here list your modules
 ])
 
    .config(config)
@@ -34,18 +35,56 @@ angular.module('tutorialize', [
             });
          }
       };
+   })
+
+   .factory('User', function () {
+      let user = {};
+
+      function login() {
+         return $resource("/auth/info").get().$promise;
+      }
+      
+      function setUser() {
+
+      }
+
+      function getUser() {
+
+      }
+
+      function isLoggedIn() {
+         return user !== {};
+      }
+
+      function logout() {
+         
+      }
+
+      then((data) => {
+         if (data.msg == "Unauthenticated") {
+            this.auth = false;
+         } else {
+            this.auth = true;
+            this.user = data;
+            console.log(this.user);
+         }
+      });
    });
 
 function Config($stateProvider, $urlRouterProvider) {
-    const states = [{
-        name: 'home',
-        url: '/',
-        component: 'home'
-    }];
-    
-    states.forEach((state) => {
-        $stateProvider.state(state)
-    });
+   const states = [{
+      name: 'home',
+      url: '/',
+      component: 'home'
+   }, {
+      name: 'admin',
+      url: '/admin',
+      component: 'admin'
+   }];
+
+   states.forEach((state) => {
+      $stateProvider.state(state)
+   });
 
    $urlRouterProvider.otherwise('/');
 }
