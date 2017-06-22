@@ -11,7 +11,7 @@ function TutorialController($resource) {
     this.filters = {};
     this.filtersUser = {};
     this.tutos = {};
-    this.count = {}
+    this.filtersCount = {}
 
 
     // On récupére les tutos
@@ -105,8 +105,7 @@ function calculateFiltersCount(filters, tutos) {
             }
         }
     }
-    self.count = count
-    console.log(count);
+    return count;
 }
 
 function initArray(size, value) {

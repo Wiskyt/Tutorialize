@@ -41,16 +41,14 @@
                                 <a data-toggle="collapse" data-parent="#collapseTwo" href="#collapseLan"><span class="glyphicon glyphicon-comment text-success"> </span> Langue
                                 <span class=" glyphicon glyphicon-chevron-down pull-right" ></span>
                                 
-                                 </a>
-                                 {{$ctrl.count}}
-                                 {{$ctrl.filtersCount.static}}
+                                 </a>  
 
                                 <div id="collapseLan" class="collapse ">
                                     <div ng-repeat="lang in $ctrl.filters.static.lang track by $index" class="checkbox">
 
                                         <li class="list-group-item ">
                                             <label><input type="checkbox"  name="checkbox" value="value">{{lang}}</label>
-                                            <span class="badge"> 33 </span>
+                                            <span class="badge">  {{$ctrl.filtersCount.lang[$index]}} </span>
                                         </li>
 
                                     </div>
@@ -67,11 +65,11 @@
                                             </a>
 
                                 <div id="collapseLang" class="collapse ">
-                                    <div ng-repeat="language in $ctrl.filters.static.language" class="checkbox">
+                                    <div ng-repeat="language in $ctrl.filters.static.language track by $index" class="checkbox">
                                         <li class="list-group-item">
 
                                             <label><input  type="checkbox" name="checkbox" value="value">{{language}}</label>
-                                            <span class="badge">0</span>
+                                            <span class="badge">{{$ctrl.filtersCount.language[$index]}}</span>
                                         </li>
                                     </div>
                                 </div>
@@ -87,10 +85,10 @@
                                              <span class=" glyphicon glyphicon-chevron-down pull-right" ></span>
                                             </a>
                                 <div id="collapseMedia" class="collapse">
-                                    <div ng-repeat="media in $ctrl.filters.static.media   " class="checkbox">
+                                    <div ng-repeat="media in $ctrl.filters.static.media  track by $index " class="checkbox">
                                         <li class="list-group-item ">
                                             <label><input type="checkbox" name="checkbox" value="value">{{media}}</label>
-                                            <span class="badge">0</span>
+                                            <span class="badge">{{$ctrl.filtersCount.media[$index]}}</span>
 
                                         </li>
                                     </div>
@@ -105,10 +103,10 @@
                                              <span class=" glyphicon glyphicon-chevron-down pull-right" ></span>
                                             </a>
                                 <div id="collapseTechno" class="collapse">
-                                    <div ng-repeat="tech in $ctrl.filters.static.techno   " class="checkbox">
+                                    <div ng-repeat="tech in $ctrl.filters.static.techno track by $index  " class="checkbox">
                                         <li class="list-group-item ">
                                             <label><input type="checkbox" name="checkbox" value="value">{{tech}}</label>
-                                            <span class="badge">0</span>
+                                            <span class="badge">{{$ctrl.filtersCount.techno[$index]}}</span>
 
                                         </li>
                                     </div>
@@ -126,7 +124,7 @@
                                     <label for="">Prix maximum :</label> {{prix}} euros
                                     <br>
                                     <li class="list-group-item ">
-                                         <span>0</span> <span class="pull-right">100</span>
+                                        <span>0</span> <span class="pull-right">100</span>
                                         <input id="ex2" type="range" list="tickmarksPrix" id="price-min" ng-model="prix" min="0" max="100" step="2" />
                                     </li>
                                     <datalist id="tickmarksPrix">
@@ -141,16 +139,16 @@
                                                             <option value="50" label="50%">
                                                                 <option value="60">
                                                                     <!--<option value="70">-->
-                                                                        <option value="80">
-                                                                            <!--<option value="90">-->
-                                                                                <option value="100" label="100%">
+                                                                    <option value="80">
+                                                                        <!--<option value="90">-->
+                                                                        <option value="100" label="100%">
                                     </datalist>
                                     <br>
                                     <label for="">Âge :</label> moins de {{age}} ans
                                     <br>
                                     <li class="list-group-item ">
                                         <span>0</span> <span class="pull-right">10</span>
-                                        <input id="ex2"   type="range" list="tickmarksAge" ng-model="age" min="0" max="10" step="0.5" />
+                                        <input id="ex2" type="range" list="tickmarksAge" ng-model="age" min="0" max="10" step="0.5" />
 
 
                                     </li>

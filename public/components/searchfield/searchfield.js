@@ -9,8 +9,8 @@ angular.module('tutorialize')
             tutos: '=',
             filters: '=',
             filtersUser: '=',
-            filtersCount: '=',
-            count: '='
+            filtersCount: '='
+            // count: '='
         }
     })
 
