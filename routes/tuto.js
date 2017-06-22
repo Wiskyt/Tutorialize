@@ -90,13 +90,12 @@ Tuto.init = function (app, routed) {
             }
 
             if (tuto) {
-               tuto = tuto.map((t) => {
+               tuto = tuto.map((t) => { // TODO: Remove in profit of calculating it every put and storing it
                   let n = JSON.parse(JSON.stringify(t));
                   n.averageRating = getAverageRating(t.ratings);
                   return n;
                })
 
-               console.log(tuto);
             }
             
             res.json({ tuto });
