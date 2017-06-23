@@ -41,7 +41,7 @@
 }
 
 .panel-heading {
-
+padding-top: 20px;
     font-family: roboto !important;
     color: #464D52 !important;
     background-color: white !important;
