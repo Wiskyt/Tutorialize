@@ -5,41 +5,107 @@
       </div>
    </div>
 
+   <!-- Table -->
    <div class="row">
       <br>
       <br>
 
+      <!-- TODO: Add missing elements 
+      
+         - Media
+         - Auteur
+         - Rating
+         
+         TODO: Ability to choose which elements are displayed
+      -->
+
       <div class="col-sm-10 col-sm-offset-1">
-     
-         <table st-table="$ctrl.tutos" class="table table-striped">
+
+         <table st-safe-src="$ctrl.tutos" st-table="$ctrl.tutosCopy" st-set-filter="myStrictFilter"
+                class="table table-striped" refresh-table>
             <thead>
+               <!-- Entetes avec tri asc/ desc-->
                <tr>
-                  <th>Langue</th>
-                  <th>Titre</th>
-                  <th>Language</th>
+                  <th st-sort="lang">Langue</th>
+                  <th st-sort="title">Titre</th>
+                  <th st-sort="language">Language</th>
                   <th>Technos</th>
-                  <th>Prix</th>
+                  <th st-sort="price">Prix</th>
                   <th>Description</th>
-                  <th>Date du tutoriel</th>
-                  <th>Date de l'ajout</th>
-                  <th>Lien</th>
-                  <th>Signalements</th>
-                  <th>Validé</th>
+                  <th>Media</th>
+                  <th st-sort="dateTuto">Date du tutoriel</th>
+                  <th st-sort="datePost">Date de l'ajout</th>
+                  <th st-sort="link">Lien</th>
+                  <th st-sort="flags">Signalements</th>
+                  <th st-sort="valid">Validé</th>
+                  <th>Actions</th>
+               </tr>
+
+               <!-- Entetes avec recherche par texte -->
+               <tr>
+                  <th colspan='2'>
+                     <input st-search="lang" placeholder="Langue" class="input-sm form-control" type="search" />
+                  </th>
+                  <th>
+                     <input st-search="language" placeholder="Language" class="input-sm form-control" type="search" />
+                  </th>
+                  <th colspan='2'>
+                     <input st-search="technos" placeholder="Technos" class="input-sm form-control" type="search" />
+                  </th>
+                  <th colspan='3'>
+                     <input st-search placeholder="Recherche globale" class="input-sm form-control" type="search" />
+                  </th>
+                  <th>
+                     <input st-search="link" placeholder="Lien" class="input-sm form-control" type="search" />
+                  </th>
+                  </th>
+                  <th>
+                     <input st-search="flags" placeholder="Minimum" class="input-sm form-control" type="search" />
+                  </th>
+                  </th>
+                  <th colspan='2'>
+                     <input st-search="valid" placeholder="Oui / Non" class="input-sm form-control" type="search" />
+                  </th>
+
                </tr>
             </thead>
+
+            <!-- Body -->
             <tbody>
-               <tr ng-repeat="tuto in $ctrl.tutos">
+               <tr ng-repeat="tuto in $ctrl.tutosCopy">
                   <td>{{tuto.lang}}</td>
                   <td>{{tuto.title}}</td>
                   <td>{{tuto.language}}</td>
                   <td>{{tuto.techno.join(", ")}}</td>
-                  <td>{{tuto.price}}</td>
+                  <td>
+                     <span ng-if="tuto.price == 0">Gratuit</span>
+                     <span ng-if="tuto.price != 0">{{tuto.price}}€</span>
+                  </td>
                   <td>{{tuto.description}}</td>
+                  <td>{{tuto.media}}</td>
                   <td>{{tuto.dateCreate}}</td>
                   <td>{{tuto.datePost}}</td>
-                  <td>{{tuto.link.replace('http://www.', '')}}</td>
-                  <td>{{tuto.flags}}</td>
-                  <td>{{tuto.isValid}}</td>
+                  <td><a ng-href="{{tuto.link}}">{{tuto.link.replace('http://www.', '')}}</a></td>
+                  <td>
+                     <div ng-if="tuto.flags.length > 0">
+                        {{tuto.flags.length}}
+                     </div>
+
+                     <div ng-if="tuto.flags.length <= 0">
+                        Aucun
+                     </div>
+                  </td>
+                  <td>
+                     <span ng-if="tuto.isValid" class="valid">Oui</span>
+                     <span ng-if="!tuto.isValid" class="not-valid">Non</span>
+
+                  </td>
+                  <td>
+                     <button ng-click="$ctrl.valid(tuto._id)" ng-class='{"disabled": tuto.isValid}'>Valider</button>
+                     <button ng-click="$ctrl.edit(tuto._id)">Edit</button>
+                     <button ng-click="$ctrl.clear(tuto._id)">Clear</button>
+                     <button ng-click="$ctrl.delete(tuto._id)">Delete</button>
+                  </td>
                </tr>
             </tbody>
          </table>

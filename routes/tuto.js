@@ -98,11 +98,12 @@ Tuto.init = function (app, routed) {
                tuto = tuto.map((t) => { // TODO: Remove in profit of calculating it every put and storing it
                   let n = JSON.parse(JSON.stringify(t));
                   n.averageRating = getAverageRating(t.ratings);
-                  return n;
+                  if (n.isValid) return n;
+               }).filter((t) => {
+                  if (t) return t;
                })
-
             }
-            
+
             res.json({ tuto });
          });
       })
@@ -116,6 +117,7 @@ Tuto.init = function (app, routed) {
          tuto.techno = req.body.techno;
          tuto.media = req.body.media;
          tuto.author = req.body.author;
+         tuto.dateCreate = Date.now();
          tuto.price = req.body.price;
          tuto.link = req.body.link;
          tuto.ratings = req.body.ratings; // TODO: Remove this line in production mode
@@ -136,6 +138,26 @@ Tuto.init = function (app, routed) {
          })
       });
 
+   routed
+      .route('/all')
+      .get(function (req, res) {
+         Tuto.find(function (err, tuto) {
+            if (err) {
+               res.send(err);
+            }
+
+            if (tuto) {
+               tuto = tuto.map((t) => { // TODO: Remove in profit of calculating it every put and storing it
+                  let n = JSON.parse(JSON.stringify(t));
+                  n.averageRating = getAverageRating(t.ratings);
+                  return n;
+               })
+
+            }
+
+            res.json({ tuto });
+         });
+      })
 
    // Route pour Update les informations
    routed
@@ -156,10 +178,13 @@ Tuto.init = function (app, routed) {
             tuto.title = req.body.title;
             tuto.description = req.body.description;
             tuto.lang = req.body.lang;
+            tuto.language = req.body.language;
             tuto.techno = req.body.techno;
             tuto.media = req.body.media;
             tuto.author = req.body.author;
             tuto.price = req.body.price;
+            tuto.dateCreate = req.body.dateCreate;
+            tuto.datePost = req.body.datePost;
             tuto.link = req.body.link;
             tuto.save(function (err) {
                if (err) {
@@ -175,6 +200,29 @@ Tuto.init = function (app, routed) {
                res.send(err);
             }
             res.send({ message: 'tuto deleted' });
+         });
+      });
+
+   routed
+      .route('/valid/:tuto_id')
+      .post(function (req, res) {
+         Tuto.findOne({ _id: req.params.tuto_id }, function (err, tuto) {
+            if (err) {
+               res.send(err);
+            }
+
+            if (tuto) {
+               tuto.isValid = true;
+               tuto.save(function (err) {
+                  if (err) {
+                     res.send(err);
+                  }
+                  res.send({ valid: true })
+               })
+
+            } else {
+               res.status(404).send("Tutorial not found");
+            }
          });
       });
 

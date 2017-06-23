@@ -1,17 +1,18 @@
 #searchfield-container {
-    padding: 10px 10px 10px 20px;
-    max-width: 280px;
-    margin: auto;
+    padding: 0px 10px 10px 0px;
+    max-width: 320px;
     position: sticky;
-    font-family: roboto;
+    font-family: Roboto;
+    color: #464D52;
 }
 
+
 .glyphicon {
-    margin-right: 3px;
+    margin-right: 10px;
 }
 
 .panel-body {
-    padding: 0px;
+    padding: 20px;
 }
 
 .panel-body table tr td {
@@ -37,4 +38,11 @@
 
 #ex2 {
     display: inline;
+}
+
+.panel-heading {
+padding-top: 20px;
+    font-family: roboto !important;
+    color: #464D52 !important;
+    background-color: white !important;
 }
