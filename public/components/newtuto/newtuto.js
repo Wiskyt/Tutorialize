@@ -21,16 +21,18 @@ function NewTuto($resource, $scope, $http) {
             data.media !== undefined ||
             data.techno !== undefined) {
             console.log(data)
-            
+
             // On fait l'insertion
             $http.post("/tuto", data).then(function (r) {
                 if (r.status == 201) {
                     console.log("OULALAL l'erreur")
-                }
-                else {
+                } else {
                     console.log("super, le tuto à étè créer")
+
+ 
                 }
             })
+
         }
         // Sinon on demande de replir tous les champs
         else {
@@ -43,6 +45,11 @@ function NewTuto($resource, $scope, $http) {
     // var req = $resource('/tutorial', tuto, { "post": { method: 'POST' } });
     // req.post().$promise.then((data) => {
     //     // answer
-    // });
-}
 
+    // }); 
+    $("#btnAjout").on('click', function () {
+        $('#myModal').modal('hide');
+    });
+
+
+}
