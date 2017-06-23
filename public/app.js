@@ -43,7 +43,7 @@ angular.module('tutorialize', [
       function login() {
          return $resource("/auth/info").get().$promise;
       }
-      
+
       function setUser() {
 
       }
@@ -57,7 +57,7 @@ angular.module('tutorialize', [
       }
 
       function logout() {
-         
+
       }
 
       then((data) => {
@@ -69,6 +69,25 @@ angular.module('tutorialize', [
             console.log(this.user);
          }
       });
+   })
+
+   .filter('myStrictFilter', function ($filter) {
+      return function (input, predicate) {
+         return $filter('filter')(input, predicate, true);
+      }
+   })
+
+   .filter('unique', function () {
+      return function (arr, field) {
+         var o = {}, i, l = arr.length, r = [];
+         for (i = 0; i < l; i += 1) {
+            o[arr[i][field]] = arr[i];
+         }
+         for (i in o) {
+            r.push(o[i]);
+         }
+         return r;
+      };
    });
 
 function Config($stateProvider, $urlRouterProvider) {

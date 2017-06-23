@@ -4,6 +4,9 @@ console.log(""); // Init
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const morgan = require('morgan');
+
+app.use(morgan('dev')); // Tell morgan to log stuff
 
 // On autorise plus de requêtes pour éviter les soucis
 app.use(function (req, res, next) {
@@ -15,7 +18,9 @@ app.use(bodyParser.json());
 
 app.use(express.static('public')); // On distribue le dossier public
 
-// LOAD ROUTES
+
+// ~~~~~~~~~~~~~ ROUTING ~~~~~~~~~~~~~~~
+
 var dbm = require('./database-manager');
 dbm.init();
 
@@ -31,17 +36,8 @@ Filters.init(app);
 var Tuto = require('./routes/tuto.js');
 Tuto.init(app, express.Router());
 
-
-// ~~~~~~~~~~~~~ ROUTING ~~~~~~~~~~~~~~~
-
-
-app.get('/data', function (req, res) {
-   console.log('GET Request at Data');
-   res.send(dbm.getExampleData());
-});
-
-
 // ~~~~~~~~~~~~ ROUTING END ~~~~~~~~~~~~~~~~~~~~
+
 
 var server = app.listen(9000, '127.0.0.1', function () {
    let serverInfo = server.address();

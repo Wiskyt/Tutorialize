@@ -15,6 +15,7 @@
     "express": "^4.15.3",
     "express-session": "^1.15.3",
     "mongoose": "^4.10.8",
+    "morgan": "^1.8.2",
     "passport": "^0.3.2",
     "passport-github2": "^0.1.10",
     "webshot": "^0.18.0"

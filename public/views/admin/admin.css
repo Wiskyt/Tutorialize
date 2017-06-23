@@ -4,3 +4,19 @@
     margin: 0;
     padding: 0;
 }
+
+.not-valid {
+   color: red;
+}
+
+.valid {
+   color: green;
+}
+
+  .st-sort-ascent:before {
+    content: '\25B2';
+  }
+
+  .st-sort-descent:before {
+    content: '\25BC';
+  }
