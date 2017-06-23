@@ -112,6 +112,7 @@ Tuto.init = function (app, routed) {
          tuto.techno = req.body.techno;
          tuto.media = req.body.media;
          tuto.author = req.body.author;
+         tuto.dateCreate = Date.now();
          tuto.price = req.body.price;
          tuto.link = req.body.link;
          tuto.ratings = req.body.ratings; // TODO: Remove this line in production mode

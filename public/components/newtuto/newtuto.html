@@ -1,82 +1,80 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
+   <div class="modal-dialog">
+      <div class="modal-content">
 
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 class="modal-title text-center" id="myModalLabel">Ajout d'un tutoriel</h3>
-      </div>
-      <!-- /.modal-header -->
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 class="modal-title text-center" id="myModalLabel">Proposition d'un tutoriel</h3>
+         </div>
+         <!-- /.modal-header -->
 
-      <div class="modal-body">
-        <!--_______________________Formulaire_________________________-->
-        <form role="form" name="myForm">
-          <div class="container"></div>
-          <div class="form-group row ">
-            <div class="form-group has-feedback has-feedback-right col-md-12">
-              <label class="control-label">Titre </label>
-              <input type="text" class="form-control " placeholder="Ex: Tutoriel Passport Auth" ng-model="$ctrl.tuto.title" />
-              <i class="form-control-feedback glyphicon glyphicon-text-width"></i>
-            </div>
+         <div class="modal-body">
+            <!--_______________________Formulaire_________________________-->
+            <form role="form" name="myForm">
+               <div class="container"></div>
+               <div class="form-group row ">
+                  <div class="form-group has-feedback has-feedback-right col-md-12">
+                     <label class="control-label">Titre </label>
+                     <input type="text" class="form-control " placeholder="Ex: Tutoriel Passport Auth" ng-model="$ctrl.tuto.title" />
+                     <i class="form-control-feedback glyphicon glyphicon-text-width"></i>
+                  </div>
 
-            <div class="form-group has-feedback has-feedback-left col-md-12">
-              <label class="control-label">Langue </label>
-              <input type="text" class="form-control " placeholder="Ex: Français" ng-model="$ctrl.tuto.lang" />
-              <i class="form-control-feedback glyphicon glyphicon-globe"></i>
-            </div>
+                  <div class="form-group has-feedback has-feedback-left col-md-12">
+                     <label class="control-label">Langue </label>
+                     <input type="text" class="form-control " placeholder="Ex: Français" ng-model="$ctrl.tuto.lang" />
+                     <i class="form-control-feedback glyphicon glyphicon-globe"></i>
+                  </div>
+                  <div class="form-group has-feedback has-feedback-left col-xs-8">
+                     <label class="control-label">Techno </label>
+                     <input type="text" class="form-control " placeholder="Ex: AngularJS , NodeJS" ng-model="$ctrl.tuto.techno" />
+                     <i class="form-control-feedback glyphicon glyphicon-console"></i>
+                  </div>
 
-            <div class="form-group has-feedback has-feedback-left col-xs-8">
-              <label class="control-label">techno </label>
-              <input type="text" class="form-control " placeholder="Ex: AngularJS , NodeJS" ng-model="$ctrl.tuto.techno" />
-              <i class="form-control-feedback glyphicon glyphicon-console"></i>
-            </div>
-
-            <div class="form-group has-feedback has-feedback-left col-xs-4">
-              <label class="control-label">Support </label>
-              <br>
-              <select name="media" id="media" ng-model="$ctrl.tuto.media" class="selectpicker input-sm">
-                <option value="website">Website</option>
-                <option value="github">Github   </option>
- 
-                <option value="video">Vidéo</option>
-              </select>
-            </div>
-            <div class="form-group has-feedback has-feedback-left col-xs-12">
-              <label class="control-label">Prix (euro)</label>
-              <input type="number" ng-model="$ctrl.tuto.price" class="form-control " placeholder="Ex:0 " />
-              <i class="form-control-feedback glyphicon glyphicon-euro"></i>
-            </div>
-            <div class="form-group has-feedback has-feedback-left col-md-12">
-              <label class="control-label">Lien du tutoriel</label>
-              <input type="text" ng-model="$ctrl.tuto.link" class="form-control " placeholder="https://stackoverflow.com/questions/tagged/php "
-              />
-              <i class="form-control-feedback glyphicon glyphicon-link"></i>
-            </div>
-            <div class="form-group has-feedback has-feedback-left col-md-12">
-              <label class="control-label">Description</label>
-              <textarea class="form-control" rows="4" ng-model="$ctrl.tuto.description" placeholder="La description du tutoriel ici">
+                  <div class="form-group has-feedback has-feedback-left col-xs-4">
+                     <label class="control-label">Support </label>
+                     <br>
+                     <select name="media" id="media" ng-model="$ctrl.tuto.media" class="selectpicker input-sm">
+                        <option value="Website">Website</option>
+                        <option value="Github">Github</option>
+                        <option value="Video">Vidéo</option>
+                     </select>
+                  </div>
+                  <div class="form-group has-feedback has-feedback-left col-xs-12">
+                     <label class="control-label">Prix (euro)</label>
+                     <input type="number" ng-model="$ctrl.tuto.price" class="form-control " placeholder="Ex:0 " />
+                     <i class="form-control-feedback glyphicon glyphicon-euro"></i>
+                  </div>
+                  <div class="form-group has-feedback has-feedback-left col-md-12">
+                     <label class="control-label">Lien du tutoriel</label>
+                     <input type="text" ng-model="$ctrl.tuto.link" class="form-control " placeholder="https://stackoverflow.com/questions/tagged/php "
+                     />
+                     <i class="form-control-feedback glyphicon glyphicon-link"></i>
+                  </div>
+                  <div class="form-group has-feedback has-feedback-left col-md-12">
+                     <label class="control-label">Description</label>
+                     <textarea class="form-control" rows="4" ng-model="$ctrl.tuto.description" placeholder="La description du tutoriel ici">
                </textarea>
-            </div>
+                  </div>
 
-          </div>
-          <!-- /.checkbox -->
-        </form>
-        <!--________________________________________________________-->
+               </div>
+               <!-- /.checkbox -->
+            </form>
+            <!--________________________________________________________-->
+         </div>
+         <!-- /.modal-body -->
+
+         <div class="modal-footer">
+            <button id="btnAjout" class="form-control btn btn-primary" ng-disabled="myForm.$invalid" ng-click="$ctrl.send()">Ajouter</button>
+
+
+
+         </div>
+         <!-- /.modal-footer -->
+
       </div>
-      <!-- /.modal-body -->
-
-      <div class="modal-footer">
-        <button id="btnAjout" class="form-control btn btn-primary" ng-disabled="myForm.$invalid" ng-click="$ctrl.send()">Ajouter</button>
-
-
-
-      </div>
-      <!-- /.modal-footer -->
-
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
+      <!-- /.modal-content -->
+   </div>
+   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
 
@@ -89,30 +87,30 @@
 
 
 <div class="modal fade" id="myModalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
+   <div class="modal-dialog">
+      <div class="modal-content">
 
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 class="modal-title text-center" id="myModalLabel">Ajout d'un tutoriel</h3>
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 class="modal-title text-center" id="myModalLabel">Ajout d'un tutoriel</h3>
+         </div>
+         <!-- /.modal-header -->
+
+         <div class="modal-body">
+            jkhkjhkjzhnklnzlkdslkv,lkd,lks,df
+
+         </div>
+         <!-- /.modal-body -->
+
+         <div class="modal-footer">
+            <button class="form-control btn btn-primary">Ajouter</button>
+
+         </div>
+         <!-- /.modal-footer -->
+
       </div>
-      <!-- /.modal-header -->
-
-      <div class="modal-body">
-        jkhkjhkjzhnklnzlkdslkv,lkd,lks,df
-
-      </div>
-      <!-- /.modal-body -->
-
-      <div class="modal-footer">
-        <button class="form-control btn btn-primary">Ajouter</button>
-
-      </div>
-      <!-- /.modal-footer -->
-
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
+      <!-- /.modal-content -->
+   </div>
+   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->

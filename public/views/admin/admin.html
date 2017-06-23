@@ -32,6 +32,7 @@
                   <th>Technos</th>
                   <th st-sort="price">Prix</th>
                   <th>Description</th>
+                  <th>Media</th>
                   <th st-sort="dateTuto">Date du tutoriel</th>
                   <th st-sort="datePost">Date de l'ajout</th>
                   <th st-sort="link">Lien</th>
@@ -81,6 +82,7 @@
                      <span ng-if="tuto.price != 0">{{tuto.price}}€</span>
                   </td>
                   <td>{{tuto.description}}</td>
+                  <td>{{tuto.media}}</td>
                   <td>{{tuto.dateCreate}}</td>
                   <td>{{tuto.datePost}}</td>
                   <td><a ng-href="{{tuto.link}}">{{tuto.link.replace('http://www.', '')}}</a></td>

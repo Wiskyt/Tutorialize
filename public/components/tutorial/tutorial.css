@@ -33,7 +33,7 @@
    /* Center stuff */
    align-items: center;
    justify-content: center;
-   border-right: 2px solid lightgrey;
+   border-right: 1px solid lightgrey;
    color: #464D52;
    font-family: roboto;
    font-size: 16px;
@@ -50,11 +50,10 @@
    background-color: grey;
 }
 
-a {
+.tutorial-title-link {
   color: white; 
   text-decoration: none; 
 }
-
 .tutorial-techno {
    display: flex;
 }
