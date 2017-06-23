@@ -6,6 +6,15 @@
    flex-flow: row;   
 
    padding: 8px 15px 8px 15px;
+
+   cursor: pointer;
+   
+   background-color: #D3D3D3;
+   transition: all ease-out 300ms;
+}
+
+.tutorial-info-wrapper:hover {
+   background-color: #f7f7f7;
 }
 
 /* Element of a box */
@@ -63,6 +72,13 @@
 .tutorial-webshot {
    margin-top: 10px;
    height: 140px;
+   transition: all linear 150ms;
+}
+
+.tutorial-webshot:hover {
+   height: 150px;
+   margin-top: 5px;
+   margin-left: -5px;
 }
 
 /* Body in the middle */
