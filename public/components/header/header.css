@@ -32,34 +32,28 @@ a:hover {
     flex: 4;
     height: 100%;
     min-width: 200px;
-    max-width: 280px;
+    max-width: 350px;
     position: relative;
     margin: 10px 50px 0px 0px;
     padding: 18px 0px 18px 0px;
 }
 
-.login-image {
-   position: absolute;
-   right: 0;
-   width: 48px;
-   height: 48px;
-}
-
-#logo {
-   transition: fill linear 200ms;
-}
-
-svg:hover #logo{
-    fill: #FF3D3C;
-}
-
-.newtuto-image {
+.admin-temp-link {
    position: absolute;
    left: 0;
    margin-top: 15px;
    color: #464D52;
-   width: 180px;
-   height: 48px;
+}
+
+.admin-temp-link:hover {
+   color: #FF3D3C;
+}
+
+.newtuto-image {
+   position: absolute;
+   left: 70px;
+   margin-top: 15px;
+   color: #464D52;
 }
 
 .newtuto-image:hover {
@@ -73,6 +67,21 @@ svg:hover #logo{
    height: 48px;
    background-image: url("../../data/img/github-logo.svg");
    background-size: cover;
+}
+
+.login-image {
+   position: absolute;
+   right: 0;
+   width: 48px;
+   height: 48px;
+}
+
+#github-logo {
+   transition: fill linear 200ms;
+}
+
+svg:hover #github-logo{
+    fill: #FF3D3C;
 }
 
 #add-tutorial-container {
