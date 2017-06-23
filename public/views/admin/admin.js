@@ -33,17 +33,28 @@ function Admin($resource, $scope) {
       });
 
       this.tutos = tutorials;
-      this.safeTutos = [].concat(tutorials);
+      this.tutosCopy = [].concat(tutorials);
 
       $scope.predicates = ['lang', 'title', 'language', 'dateTuto', 'datePost', 'link', 'price', 'flags', 'valid'];
       $scope.selectedPredicate = $scope.predicates[8];
    });
 
    this.valid = function (id) {
+      console.log("ID: ", id);
       let request = $resource('/tuto/valid/' + id);
       request.save().$promise.then((data) => {
-         console.log(this.tutos[this.tutos.findIndex((e) => e._id = id)]);
-         this.tutos[this.tutos.findIndex((e) => e._id = id)].isValid = data.valid;
+         
+         let index = this.tutos.findIndex((e) => {
+            return e._id == id;
+         });
+         console.log(index);
+
+         let item = this.tutos.splice(index, 1)[0];
+         item.isValid = data.valid;
+         
+         this.tutos.push(item);
+
+         console.log('Validey', this.tutos);
       });
    }
 

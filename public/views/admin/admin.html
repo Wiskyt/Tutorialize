@@ -21,7 +21,8 @@
 
       <div class="col-sm-10 col-sm-offset-1">
 
-         <table st-safe-src="$ctrl.safeTutos" st-table="$ctrl.tutos" st-set-filter="myStrictFilter" class="table table-striped">
+         <table st-safe-src="$ctrl.tutos" st-table="$ctrl.tutosCopy" st-set-filter="myStrictFilter"
+                class="table table-striped" refresh-table>
             <thead>
                <!-- Entetes avec tri asc/ desc-->
                <tr>
@@ -70,7 +71,7 @@
 
             <!-- Body -->
             <tbody>
-               <tr ng-repeat="tuto in $ctrl.tutos">
+               <tr ng-repeat="tuto in $ctrl.tutosCopy">
                   <td>{{tuto.lang}}</td>
                   <td>{{tuto.title}}</td>
                   <td>{{tuto.language}}</td>
@@ -98,7 +99,7 @@
 
                   </td>
                   <td>
-                     <button ng-click="$ctrl.valid(tuto._id)">Valider</button>
+                     <button ng-click="$ctrl.valid(tuto._id)" ng-class='{"disabled": tuto.isValid}'>Valider</button>
                      <button ng-click="$ctrl.edit(tuto._id)">Edit</button>
                      <button ng-click="$ctrl.clear(tuto._id)">Clear</button>
                      <button ng-click="$ctrl.delete(tuto._id)">Delete</button>
